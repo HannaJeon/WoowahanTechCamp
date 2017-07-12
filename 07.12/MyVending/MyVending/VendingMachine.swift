@@ -74,11 +74,19 @@ class VendingMachine: NSObject, NSCoding {
     }
     
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수
-    func buy(restaurant: String, food: String) {
-        if let product = products[restaurant] {
-//            let index = products[restaurant]?.index(of: <#T##Food#>)
-//            products[restaurant].remove
+    func buy(foodName: String, restaurant: String) -> Int {
+        guard var product = products[restaurant] else { return balance }
+        
+        for food in product {
+            if food.getFoodName() == foodName {
+                if let index = product.index(of: food) {
+                    product.remove(at: index)
+                    balance -= food.getPrice()
+                    break
+                }
+            }
         }
+        return balance
     }
 //    - 실행 이후 구매한 음식 이름과 금액을 사전으로 추상화하고 전체 구매 목록을 배 열로 리턴하는 함수
 }

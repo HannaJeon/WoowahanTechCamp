@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		981FBB761F15AD2B009BF4F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB751F15AD2B009BF4F7 /* main.swift */; };
+		981FBB7D1F15AD38009BF4F7 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB7C1F15AD38009BF4F7 /* Food.swift */; };
+		981FBB811F15ADB6009BF4F7 /* KoreanFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB801F15ADB6009BF4F7 /* KoreanFood.swift */; };
+		981FBB831F15B237009BF4F7 /* Chicken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB821F15B237009BF4F7 /* Chicken.swift */; };
+		981FBB851F15B23F009BF4F7 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB841F15B23F009BF4F7 /* Pizza.swift */; };
+		981FBB871F15B255009BF4F7 /* Hamberger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB861F15B255009BF4F7 /* Hamberger.swift */; };
+		981FBB8B1F15B689009BF4F7 /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FBB8A1F15B689009BF4F7 /* VendingMachine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		981FBB701F15AD2B009BF4F7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		981FBB721F15AD2B009BF4F7 /* Food */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Food; sourceTree = BUILT_PRODUCTS_DIR; };
+		981FBB751F15AD2B009BF4F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		981FBB7C1F15AD38009BF4F7 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		981FBB801F15ADB6009BF4F7 /* KoreanFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoreanFood.swift; sourceTree = "<group>"; };
+		981FBB821F15B237009BF4F7 /* Chicken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chicken.swift; sourceTree = "<group>"; };
+		981FBB841F15B23F009BF4F7 /* Pizza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		981FBB861F15B255009BF4F7 /* Hamberger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hamberger.swift; sourceTree = "<group>"; };
+		981FBB8A1F15B689009BF4F7 /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		981FBB6F1F15AD2B009BF4F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		981FBB691F15AD2B009BF4F7 = {
+			isa = PBXGroup;
+			children = (
+				981FBB741F15AD2B009BF4F7 /* Food */,
+				981FBB731F15AD2B009BF4F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		981FBB731F15AD2B009BF4F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				981FBB721F15AD2B009BF4F7 /* Food */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		981FBB741F15AD2B009BF4F7 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				981FBB751F15AD2B009BF4F7 /* main.swift */,
+				981FBB7C1F15AD38009BF4F7 /* Food.swift */,
+				981FBB801F15ADB6009BF4F7 /* KoreanFood.swift */,
+				981FBB821F15B237009BF4F7 /* Chicken.swift */,
+				981FBB841F15B23F009BF4F7 /* Pizza.swift */,
+				981FBB861F15B255009BF4F7 /* Hamberger.swift */,
+				981FBB8A1F15B689009BF4F7 /* VendingMachine.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		981FBB711F15AD2B009BF4F7 /* Food */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 981FBB791F15AD2B009BF4F7 /* Build configuration list for PBXNativeTarget "Food" */;
+			buildPhases = (
+				981FBB6E1F15AD2B009BF4F7 /* Sources */,
+				981FBB6F1F15AD2B009BF4F7 /* Frameworks */,
+				981FBB701F15AD2B009BF4F7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Food;
+			productName = Food;
+			productReference = 981FBB721F15AD2B009BF4F7 /* Food */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		981FBB6A1F15AD2B009BF4F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = woowabrothers;
+				TargetAttributes = {
+					981FBB711F15AD2B009BF4F7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 981FBB6D1F15AD2B009BF4F7 /* Build configuration list for PBXProject "Food" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 981FBB691F15AD2B009BF4F7;
+			productRefGroup = 981FBB731F15AD2B009BF4F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				981FBB711F15AD2B009BF4F7 /* Food */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		981FBB6E1F15AD2B009BF4F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				981FBB761F15AD2B009BF4F7 /* main.swift in Sources */,
+				981FBB851F15B23F009BF4F7 /* Pizza.swift in Sources */,
+				981FBB7D1F15AD38009BF4F7 /* Food.swift in Sources */,
+				981FBB871F15B255009BF4F7 /* Hamberger.swift in Sources */,
+				981FBB831F15B237009BF4F7 /* Chicken.swift in Sources */,
+				981FBB811F15ADB6009BF4F7 /* KoreanFood.swift in Sources */,
+				981FBB8B1F15B689009BF4F7 /* VendingMachine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		981FBB771F15AD2B009BF4F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		981FBB781F15AD2B009BF4F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		981FBB7A1F15AD2B009BF4F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		981FBB7B1F15AD2B009BF4F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		981FBB6D1F15AD2B009BF4F7 /* Build configuration list for PBXProject "Food" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				981FBB771F15AD2B009BF4F7 /* Debug */,
+				981FBB781F15AD2B009BF4F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		981FBB791F15AD2B009BF4F7 /* Build configuration list for PBXNativeTarget "Food" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				981FBB7A1F15AD2B009BF4F7 /* Debug */,
+				981FBB7B1F15AD2B009BF4F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 981FBB6A1F15AD2B009BF4F7 /* Project object */;
+}

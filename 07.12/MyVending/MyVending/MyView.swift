@@ -61,7 +61,6 @@ class MyView: UIView {
         addButtons.forEach{ (button) in
             button.setTitle("추가", for: .normal)
             button.addTarget(viewController, action: #selector(viewController.addButtonAction(_:)), for: .touchUpInside)
-//            print(12345)
         }
         buyButtons.forEach { (button) in
             button.setTitle("구매", for: .normal)

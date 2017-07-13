@@ -52,38 +52,28 @@ class ViewController: UIViewController {
     
     func setLabel(_ notification: Notification) {
         let view = self.view as! MyView
-//        switch buttonTag {
-//        case 1:
-//            <#code#>
-//        case 2:
-//            
-//        case 3:
-//            
-//        case 4:
-//            
-//        case 5:
-//            
-//        default:
-//            break
-//        }
+        let stock = notification.userInfo as! [String:Int]
         
-        let stock = notification.userInfo as! [String:[String:Int]]
-        print(12345)
-        print(view.foodNameLabels[buttonTag])
-        for brand in stock {
-            
-//            switch view.foodNameLabels {
-//            case <#pattern#>:
-//                <#code#>
-//            default:
-//                <#code#>
-//            }
-//            if String(describing: brand.key) == view.foodNameLabels[buttonTag].text! {
-//                let val = brand.value[view.foodNameLabels[buttonTag].text!]
-//                print(val)
-//                view.stockLabels[buttonTag].text = String(describing: val!)
-//                capacityLabels[buttonTag].text = String(describing: val!)
-//            }
+        view.stockLabels.forEach { (label) in
+            switch label.tag {
+            case 1:
+                guard let value = stock["피자헛"] else { return }
+                label.text = String(describing: value)
+            case 2:
+                guard let value = stock["맥도날드"] else { return }
+                label.text = String(describing: value)
+            case 3:
+                guard let value = stock["엽기떡볶이"] else { return }
+                label.text = String(describing: value)
+            case 4:
+                guard let value = stock["원할머니보쌈"] else { return }
+                label.text = String(describing: value)
+            case 5:
+                guard let value = stock["교촌치킨"] else { return }
+                label.text = String(describing: value)
+            default:
+                break
+            }
         }
     }
     

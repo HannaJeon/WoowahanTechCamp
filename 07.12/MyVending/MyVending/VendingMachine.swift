@@ -37,7 +37,9 @@ class VendingMachine: NSObject, NSCoding {
                 products[food.getRestaurant()] = [food]
             }
         }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: checkStock())
+        
+        guard let list = products[food.getRestaurant()] else { return }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: [food.getRestaurant():list.count])
     }
     
 //    - 전체 음식 재고를 (사전으로 표현하는) 종류별로 리턴하는 함수

@@ -11,7 +11,7 @@ import Foundation
 class KoreanFood: Food {
     private let spicyDegree: Int
     
-    init(restaurant: String, capacity: Int, price: Int, foodName: String, produceDate: Date, spicyDegree: Int) {
+    init(restaurant: String, capacity: Int, price: Int, foodName: String, spicyDegree: Int) {
         self.spicyDegree = spicyDegree
         super.init(restaurant: restaurant, capacity: capacity, price: price, foodName: foodName, kindOfProduct: "KoreanFood")
     }

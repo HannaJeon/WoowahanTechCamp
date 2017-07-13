@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             vc.addStock()
         }
-        
         return true
     }
 

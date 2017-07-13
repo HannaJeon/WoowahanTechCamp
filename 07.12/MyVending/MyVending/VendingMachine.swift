@@ -61,7 +61,7 @@ class VendingMachine: NSObject, NSCoding {
     }
     
 //    - 금액을 입력하면 구매가능한 음식 목록을 리턴하는 함수
-    func checkAblePurchase(money: Int) -> [String:[String]] {
+    func checkAblePurchase(money: Int) -> (foodList: [String:[String]], balance: Int) {
         balance += money
         var result = [String:[String]]()
         
@@ -77,7 +77,8 @@ class VendingMachine: NSObject, NSCoding {
                 }
             }
         }
-        return result
+        print(result, balance)
+        return (result, balance)
     }
     
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수

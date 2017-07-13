@@ -22,8 +22,23 @@ class MyView: UIView {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
     override func layoutSubviews() {
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
-        
+        foodImageInit()
+        foodNameLabelsInit()
+        addButtonsInit()
+        buyButtonsInit()
+        anotherSettingInit()
+        stockLabelsInit()
+    }
+    
+    func stockLabelsInit() {
+        stockLabels.forEach {
+            if ($0.text?.isEmpty)! {
+                $0.text = "0개"
+            }
+        }
+    }
+    
+    func foodImageInit() {
         for imageView in foodImages {
             switch imageView.tag {
             case 1:
@@ -40,7 +55,9 @@ class MyView: UIView {
                 break
             }
         }
-        
+    }
+    
+    func foodNameLabelsInit() {
         for foodName in foodNameLabels {
             switch foodName.tag {
             case 1:
@@ -57,18 +74,31 @@ class MyView: UIView {
                 break
             }
         }
+    }
+    
+    func addButtonsInit() {
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
         
         addButtons.forEach{ (button) in
             button.setTitle("추가", for: .normal)
-//            button.addTarget(viewController, action: #selector(viewController.addButtonAction(_:)), for: .touchUpInside)
+            button.addTarget(viewController, action: #selector(viewController.addButtonAction(_:)), for: .touchUpInside)
         }
+    }
+    
+    func buyButtonsInit() {
         buyButtons.forEach { (button) in
             button.setTitle("구매", for: .normal)
             button.setTitleColor(UIColor.red, for: .normal)
         }
+    }
+    
+    func anotherSettingInit() {
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
+        
         plusCoin1000.setTitle("+1000", for: .normal)
+        plusCoin1000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
         plusCoin5000.setTitle("+5000", for: .normal)
+        plusCoin5000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
         balanceLabel.text = "잔액: 0원"
-        stockLabels.forEach{ $0.text = "0개" }
     }
 }

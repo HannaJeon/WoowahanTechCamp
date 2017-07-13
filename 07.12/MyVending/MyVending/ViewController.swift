@@ -10,24 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     var vendingMachine = VendingMachine()
-
-    let myView = MyView()
     var buttonTag = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(myView)
-        print(vendingMachine.checkStock())
-        print(myView)
-        let view = self.view as! MyView
         
-        view.addButtons.forEach{ $0.addTarget(self, action: #selector(addButtonAction(_:)), for: .touchUpInside) }
-        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
+        checkStockInit()
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkStockInit() {
+        let stock = vendingMachine.checkStock()
+        let key = stock.map { $0.key }
+
+        for i in key {
+            stock.forEach { (food: (key: String, value: [String : Int])) in
+                if i == food.key {
+                    sendDataToLabel(stock: [food.key : food.value.values.first!])
+                }
+            }
+        }
     }
     
     func addButtonAction(_ sender: UIButton) {
@@ -48,10 +55,15 @@ class ViewController: UIViewController {
         buttonTag = sender.tag
     }
     
-    func setLabel(_ notification: Notification) {
+    func receiveNoti(_ notification: Notification) {
+        if let stock = notification.userInfo as? [String:Int] {
+            sendDataToLabel(stock: stock)
+        }
+    }
+    
+    func sendDataToLabel(stock: [String:Int]) {
         let view = self.view as! MyView
-        let stock = notification.userInfo as! [String:Int]
-        
+
         view.stockLabels.forEach { (label) in
             switch label.tag {
             case 1:
@@ -75,6 +87,19 @@ class ViewController: UIViewController {
         }
     }
     
+    func insert(_ sender: UIButton) {
+        let view = self.view as! MyView
+        var value: (foodList: [String:[String]], balance: Int)
+        
+        if sender.tag == 1 {
+            value = vendingMachine.checkAblePurchase(money: 1000)
+        } else {
+            value = vendingMachine.checkAblePurchase(money: 5000)
+        }
+        
+        view.balanceLabel.text = String("잔액: \(value.balance)원")
+    }
+    
     func setInstance(vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
@@ -86,6 +111,5 @@ class ViewController: UIViewController {
         vendingMachine.addProduct(food: KoreanFood(restaurant: "원할머니보쌈", capacity: 10, price: 25000, foodName: "보쌈", spicyDegree: 0))
         vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: 10, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
     }
-
 }
 

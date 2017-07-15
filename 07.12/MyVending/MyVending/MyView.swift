@@ -19,9 +19,7 @@ class MyView: UIView {
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var foodNameLabels: [UILabel]!
     
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    
-    override func layoutSubviews() {
+    override func awakeFromNib() {
         foodImageInit()
         foodNameLabelsInit()
         addButtonsInit()
@@ -82,8 +80,7 @@ class MyView: UIView {
     }
     
     func addButtonsInit() {
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
-        
+        let viewController = ViewController(nibName: "viewController", bundle: nil)
         addButtons.forEach{ (button) in
             button.setTitle("추가", for: .normal)
             button.addTarget(viewController, action: #selector(viewController.addButtonAction(_:)), for: .touchUpInside)
@@ -91,7 +88,7 @@ class MyView: UIView {
     }
     
     func buyButtonsInit() {
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
+        let viewController = ViewController(nibName: "viewController", bundle: nil)
         
         buyButtons.forEach { (button) in
             button.setTitle("구매", for: .normal)
@@ -102,12 +99,12 @@ class MyView: UIView {
     }
     
     func anotherSettingInit() {
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
-        
-        plusCoin1000.setTitle("+1000", for: .normal)
+        let viewController = ViewController(nibName: "viewController", bundle: nil)
+
         plusCoin1000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
-        plusCoin5000.setTitle("+5000", for: .normal)
         plusCoin5000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
+        plusCoin1000.setTitle("+1000", for: .normal)
+        plusCoin5000.setTitle("+5000", for: .normal)
         balanceLabel.text = "잔액: 0원"
     }
 }

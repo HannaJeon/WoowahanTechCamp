@@ -26,10 +26,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
-    }
-    
     func checkStockInit() {
         let stock = vendingMachine.checkStock()
         let key = stock.map { $0.key }
@@ -166,16 +162,13 @@ class ViewController: UIViewController {
         
         cardImage.frame = CGRect(x: x, y: 575, width: 140, height: 100)
         x += 50
-        self.view.addSubview(cardImage)
+        view.addSubview(cardImage)
         
         sendDataToLabel(stock: value!.stock)
         checkAbleFood(foodList: value!.foodList)
         view.balanceLabel.text = String("잔액: \(value?.balance ?? 0)원")
     }
     
-    func setImageCoordinates(x: Int, y: Int) {
-//        let cardImage = UIImageView
-    }
     
     func setInstance(vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine

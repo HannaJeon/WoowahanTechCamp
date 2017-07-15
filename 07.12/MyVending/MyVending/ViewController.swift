@@ -96,8 +96,65 @@ class ViewController: UIViewController {
         } else {
             value = vendingMachine.checkAblePurchase(money: 5000)
         }
-        
+
+        checkAbleFood(foodList: value.foodList)
         view.balanceLabel.text = String("잔액: \(value.balance)원")
+    }
+    
+    func checkAbleFood(foodList: [String:[String]]) {
+        let view = self.view as! MyView
+        
+        view.buyButtons.forEach { (button) in
+            button.setTitleColor(UIColor.gray, for: .normal)
+            button.isEnabled = false
+        }
+        
+        if !foodList.isEmpty {
+            foodList.forEach({ (food: (key: String, value: [String])) in
+                switch food.key {
+                case "피자헛":
+                    view.buyButtons[0].setTitleColor(UIColor.red, for: .normal)
+                    view.buyButtons[0].isEnabled = true
+                case "맥도날드":
+                    view.buyButtons[1].setTitleColor(UIColor.red, for: .normal)
+                    view.buyButtons[1].isEnabled = true
+                case "엽기떡볶이":
+                    view.buyButtons[2].setTitleColor(UIColor.red, for: .normal)
+                    view.buyButtons[2].isEnabled = true
+                case "원할머니보쌈":
+                    view.buyButtons[3].setTitleColor(UIColor.red, for: .normal)
+                    view.buyButtons[3].isEnabled = true
+                case "교촌치킨":
+                    view.buyButtons[4].setTitleColor(UIColor.red, for: .normal)
+                    view.buyButtons[4].isEnabled = true
+                default:
+                    break
+                }
+            })
+        }
+    }
+    
+    func buyFood(_ sender: UIButton) {
+        let view = self.view as! MyView
+        var value: (stock: [String:Int], foodList: [String:[String]], balance: Int)? = nil
+        
+        switch sender.tag {
+        case 1:
+            value = vendingMachine.buy(foodName: "페퍼로니피자", restaurant: "피자헛")
+        case 2:
+            value = vendingMachine.buy(foodName: "불고기버거", restaurant: "맥도날드")
+        case 3:
+            value = vendingMachine.buy(foodName: "엽기떡볶이", restaurant: "엽기떡볶이")
+        case 4:
+            value = vendingMachine.buy(foodName: "보쌈", restaurant: "원할머니보쌈")
+        case 5:
+            value = vendingMachine.buy(foodName: "양념치킨", restaurant: "교촌치킨")
+        default:
+            break
+        }
+        
+        checkAbleFood(foodList: (value?.foodList)!)
+        view.balanceLabel.text = String("잔액: \(value?.balance ?? 0)원")
     }
     
     func setInstance(vendingMachine: VendingMachine) {

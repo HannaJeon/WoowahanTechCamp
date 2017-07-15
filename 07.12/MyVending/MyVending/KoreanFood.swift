@@ -17,7 +17,7 @@ class KoreanFood: Food {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.spicyDegree = aDecoder.decodeObject(forKey: "spicyDegree") as! Int
+        self.spicyDegree = aDecoder.decodeInteger(forKey: "spicyDegree")
         super.init(coder: aDecoder)
     }
     

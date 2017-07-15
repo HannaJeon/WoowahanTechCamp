@@ -86,9 +86,13 @@ class MyView: UIView {
     }
     
     func buyButtonsInit() {
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "viewController") as! ViewController
+        
         buyButtons.forEach { (button) in
             button.setTitle("구매", for: .normal)
-            button.setTitleColor(UIColor.red, for: .normal)
+            button.setTitleColor(UIColor.gray, for: .normal)
+            button.isEnabled = false
+            button.addTarget(viewController, action: #selector(viewController.buyFood(_:)), for: .touchUpInside)
         }
     }
     

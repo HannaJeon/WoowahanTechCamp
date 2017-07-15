@@ -66,8 +66,10 @@ class VendingMachine: NSObject, NSCoding {
         var result = [String:[String]]()
         
         for product in products {
-            let menuList = Set(product.value.map{ $0 })
-            for menu in menuList {
+//            print(product.value)
+//            let menuList = Set(product.value)
+//            print(menuList)
+            if let menu = product.value.first {
                 if balance >= menu.getPrice() {
                     if let brand = result[menu.getRestaurant()] {
                         result[menu.getRestaurant()] = brand + [menu.getFoodName()]
@@ -77,13 +79,12 @@ class VendingMachine: NSObject, NSCoding {
                 }
             }
         }
-        print(result, balance)
         return (result, balance)
     }
     
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수
-    func buy(foodName: String, restaurant: String) -> Int {
-        guard var product = products[restaurant] else { return balance }
+    func buy(foodName: String, restaurant: String) -> (stock: [String:Int], foodList: [String:[String]], balance: Int) {
+        guard var product = products[restaurant] else { return ([String:Int](), [String:[String]](), balance) }
 
         for food in product {
             if food.getFoodName() == foodName {
@@ -99,10 +100,12 @@ class VendingMachine: NSObject, NSCoding {
                 }
             }
         }
-        return balance
+        let foodList = checkAblePurchase(money: 0)
+        
+        return ([restaurant:product.count], foodList.foodList, balance)
     }
 //    - 실행 이후 구매한 음식 이름과 금액을 사전으로 추상화하고 전체 구매 목록을 배 열로 리턴하는 함수
-    // [브랜드:[메뉴:총금액]]
+
     func checkPurchaseList() -> [String:[String]] {
         return purchaseList
     }

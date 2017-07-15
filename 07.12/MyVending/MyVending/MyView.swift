@@ -18,6 +18,7 @@ class MyView: UIView {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet var stockLabels: [UILabel]!
     @IBOutlet var foodNameLabels: [UILabel]!
+//    let viewController = ViewController(nibName: "viewController", bundle: nil)
     
     override func awakeFromNib() {
         foodImageInit()
@@ -26,7 +27,19 @@ class MyView: UIView {
         buyButtonsInit()
         anotherSettingInit()
         stockLabelsInit()
+        resetButtonInit()
         self.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+        
+    }
+    
+    func resetButtonInit() {
+        let viewController = ViewController(nibName: "viewController", bundle: nil)
+        let resetButton = UIButton()
+        resetButton.frame = CGRect(x: 700, y: 500, width: 100, height: 50)
+        resetButton.setTitle("reset", for: .normal)
+        resetButton.tintColor = UIColor.red
+        resetButton.addTarget(viewController, action: #selector(viewController.reset), for: .touchUpInside)
+        self.addSubview(resetButton)
     }
     
     func stockLabelsInit() {
@@ -89,7 +102,6 @@ class MyView: UIView {
     
     func buyButtonsInit() {
         let viewController = ViewController(nibName: "viewController", bundle: nil)
-        
         buyButtons.forEach { (button) in
             button.setTitle("구매", for: .normal)
             button.setTitleColor(UIColor.gray, for: .normal)
@@ -100,7 +112,6 @@ class MyView: UIView {
     
     func anotherSettingInit() {
         let viewController = ViewController(nibName: "viewController", bundle: nil)
-
         plusCoin1000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
         plusCoin5000.addTarget(viewController, action: #selector(viewController.insert(_:)), for: .touchUpInside)
         plusCoin1000.setTitle("+1000", for: .normal)

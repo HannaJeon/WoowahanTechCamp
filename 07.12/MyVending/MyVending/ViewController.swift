@@ -70,19 +70,19 @@ class ViewController: UIViewController {
             switch label.tag {
             case 1:
                 guard let value = stock["피자헛"] else { return }
-                label.text = String(describing: value)
+                label.text = "\(value)개"
             case 2:
                 guard let value = stock["맥도날드"] else { return }
-                label.text = String(describing: value)
+                label.text = "\(value)개"
             case 3:
                 guard let value = stock["엽기떡볶이"] else { return }
-                label.text = String(describing: value)
+                label.text = "\(value)개"
             case 4:
                 guard let value = stock["원할머니보쌈"] else { return }
-                label.text = String(describing: value)
+                label.text = "\(value)개"
             case 5:
                 guard let value = stock["교촌치킨"] else { return }
-                label.text = String(describing: value)
+                label.text = "\(value)개"
             default:
                 break
             }
@@ -169,17 +169,21 @@ class ViewController: UIViewController {
         view.balanceLabel.text = String("잔액: \(value?.balance ?? 0)원")
     }
     
+    func reset() {
+        vendingMachine.reset()
+        addStock(capacity: 1)
+    }
     
     func setInstance(vendingMachine: VendingMachine) {
         self.vendingMachine = vendingMachine
     }
 
-    func addStock() {
-        vendingMachine.addProduct(food: Pizza(restaurant: "피자헛", capacity: 10, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
-        vendingMachine.addProduct(food: Hamberger(restaurant: "맥도날드", capacity: 10, price: 4000, foodName: "불고기버거", upgradeSize: true, withFrenchFry: true))
-        vendingMachine.addProduct(food: KoreanFood(restaurant: "엽기떡볶이", capacity: 10, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
-        vendingMachine.addProduct(food: KoreanFood(restaurant: "원할머니보쌈", capacity: 10, price: 25000, foodName: "보쌈", spicyDegree: 0))
-        vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: 10, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
+    func addStock(capacity: Int) {
+        vendingMachine.addProduct(food: Pizza(restaurant: "피자헛", capacity: capacity, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
+        vendingMachine.addProduct(food: Hamberger(restaurant: "맥도날드", capacity: capacity, price: 4000, foodName: "불고기버거", upgradeSize: true, withFrenchFry: true))
+        vendingMachine.addProduct(food: KoreanFood(restaurant: "엽기떡볶이", capacity: capacity, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
+        vendingMachine.addProduct(food: KoreanFood(restaurant: "원할머니보쌈", capacity: capacity, price: 25000, foodName: "보쌈", spicyDegree: 0))
+        vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: capacity, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
     }
 }
 

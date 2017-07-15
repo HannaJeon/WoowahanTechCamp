@@ -109,4 +109,8 @@ class VendingMachine: NSObject, NSCoding {
     func checkPurchaseList() -> [String:[String]] {
         return purchaseList
     }
+    
+    func reset() {
+        products = [String:[Food]]()
+    }
 }

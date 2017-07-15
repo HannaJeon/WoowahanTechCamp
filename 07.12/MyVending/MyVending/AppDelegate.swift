@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vendingMachine = NSKeyedUnarchiver.unarchiveObject(with: data)
             vc.setInstance(vendingMachine: vendingMachine as! VendingMachine)
         } else {
-            vc.addStock()
+            vc.addStock(capacity: 10)
         }
         return true
     }

@@ -11,13 +11,13 @@ import Foundation
 class KoreanFood: Food {
     private let spicyDegree: Int
     
-    init(restaurant: String, capacity: Int, price: Int, foodName: String, produceDate: Date, spicyDegree: Int) {
+    init(restaurant: String, capacity: Int, price: Int, foodName: String, spicyDegree: Int) {
         self.spicyDegree = spicyDegree
         super.init(restaurant: restaurant, capacity: capacity, price: price, foodName: foodName, kindOfProduct: "KoreanFood")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.spicyDegree = aDecoder.decodeObject(forKey: "spicyDegree") as! Int
+        self.spicyDegree = aDecoder.decodeInteger(forKey: "spicyDegree")
         super.init(coder: aDecoder)
     }
     

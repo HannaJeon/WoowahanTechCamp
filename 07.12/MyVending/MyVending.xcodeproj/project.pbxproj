@@ -18,6 +18,7 @@
 		989B98D31F16012500E2804F /* KoreanFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B98CD1F16012500E2804F /* KoreanFood.swift */; };
 		989B98D41F16012500E2804F /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B98CE1F16012500E2804F /* Pizza.swift */; };
 		989B98D51F16012500E2804F /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989B98CF1F16012500E2804F /* VendingMachine.swift */; };
+		98CB4B241F170A9100705A64 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B231F170A9100705A64 /* MyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		989B98CD1F16012500E2804F /* KoreanFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoreanFood.swift; sourceTree = "<group>"; };
 		989B98CE1F16012500E2804F /* Pizza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
 		989B98CF1F16012500E2804F /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		98CB4B231F170A9100705A64 /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				989B98B81F1600EF00E2804F /* AppDelegate.swift */,
 				989B98BA1F1600EF00E2804F /* ViewController.swift */,
+				98CB4B231F170A9100705A64 /* MyView.swift */,
 				989B98CB1F16012500E2804F /* Food.swift */,
 				989B98CA1F16012500E2804F /* Chicken.swift */,
 				989B98CC1F16012500E2804F /* Hamberger.swift */,
@@ -157,6 +160,7 @@
 				989B98D41F16012500E2804F /* Pizza.swift in Sources */,
 				989B98BB1F1600EF00E2804F /* ViewController.swift in Sources */,
 				989B98D11F16012500E2804F /* Food.swift in Sources */,
+				98CB4B241F170A9100705A64 /* MyView.swift in Sources */,
 				989B98B91F1600EF00E2804F /* AppDelegate.swift in Sources */,
 				989B98D31F16012500E2804F /* KoreanFood.swift in Sources */,
 				989B98D01F16012500E2804F /* Chicken.swift in Sources */,
@@ -289,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hanna.MyVending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -301,6 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hanna.MyVending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

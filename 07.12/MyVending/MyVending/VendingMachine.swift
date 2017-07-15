@@ -25,6 +25,7 @@ class VendingMachine: NSObject, NSCoding {
 
     private var products = [String:[Food]]()
     private var stockDic = [String:[String:Int]]()
+    private var purchaseList = [String:[String]]()
     private var balance = Int()
     
 //    - 특정 음식을 추가하는 함수
@@ -36,7 +37,9 @@ class VendingMachine: NSObject, NSCoding {
                 products[food.getRestaurant()] = [food]
             }
         }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: checkStock())
+        
+        guard let list = products[food.getRestaurant()] else { return }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: [food.getRestaurant():list.count])
     }
     
 //    - 전체 음식 재고를 (사전으로 표현하는) 종류별로 리턴하는 함수
@@ -58,27 +61,56 @@ class VendingMachine: NSObject, NSCoding {
     }
     
 //    - 금액을 입력하면 구매가능한 음식 목록을 리턴하는 함수
-    func checkAblePurchase(money: Int) -> [String:String] {
+    func checkAblePurchase(money: Int) -> (foodList: [String:[String]], balance: Int) {
         balance += money
-        var result = [String:String]()
+        var result = [String:[String]]()
         
         for product in products {
-            let menuList = Set(product.value.map{ $0 })
-            for menu in menuList {
-                if money >= menu.getPrice() {
-                    result[menu.getRestaurant()] = menu.getFoodName()
+//            print(product.value)
+//            let menuList = Set(product.value)
+//            print(menuList)
+            if let menu = product.value.first {
+                if balance >= menu.getPrice() {
+                    if let brand = result[menu.getRestaurant()] {
+                        result[menu.getRestaurant()] = brand + [menu.getFoodName()]
+                    } else {
+                        result[menu.getRestaurant()] = [menu.getFoodName()]
+                    }
                 }
             }
         }
-        return result
+        return (result, balance)
     }
     
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수
-    func buy(restaurant: String, food: String) {
-        if let product = products[restaurant] {
-//            let index = products[restaurant]?.index(of: <#T##Food#>)
-//            products[restaurant].remove
+    func buy(foodName: String, restaurant: String) -> (stock: [String:Int], foodList: [String:[String]], balance: Int) {
+        guard let product = products[restaurant] else { return ([String:Int](), [String:[String]](), balance) }
+        
+        for food in product {
+            if food.getFoodName() == foodName {
+                if let index = product.index(of: food) {
+                    if let list = purchaseList[food.getRestaurant()] {
+                        purchaseList[food.getRestaurant()] = list + [food.getFoodName()]
+                    } else {
+                        purchaseList[food.getRestaurant()] = [food.getFoodName()]
+                    }
+                    products[restaurant]?.remove(at: index)
+                    balance -= food.getPrice()
+                    break
+                }
+            }
         }
+        let foodList = checkAblePurchase(money: 0)
+        
+        return ([restaurant:products[restaurant]!.count], foodList.foodList, balance)
     }
 //    - 실행 이후 구매한 음식 이름과 금액을 사전으로 추상화하고 전체 구매 목록을 배 열로 리턴하는 함수
+
+    func checkPurchaseList() -> [String:[String]] {
+        return purchaseList
+    }
+    
+    func reset() {
+        products = [String:[Food]]()
+    }
 }

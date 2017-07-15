@@ -68,7 +68,7 @@ class VendingMachine: NSObject, NSCoding {
         for product in products {
             let menuList = Set(product.value.map{ $0 })
             for menu in menuList {
-                if money >= menu.getPrice() {
+                if balance >= menu.getPrice() {
                     if let brand = result[menu.getRestaurant()] {
                         result[menu.getRestaurant()] = brand + [menu.getFoodName()]
                     } else {

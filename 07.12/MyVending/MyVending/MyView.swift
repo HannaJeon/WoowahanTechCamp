@@ -28,6 +28,7 @@ class MyView: UIView {
         buyButtonsInit()
         anotherSettingInit()
         stockLabelsInit()
+        self.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
     }
     
     func stockLabelsInit() {
@@ -54,6 +55,10 @@ class MyView: UIView {
             default:
                 break
             }
+            imageView.layer.borderWidth = 5
+            imageView.layer.borderColor = UIColor.white.cgColor
+            imageView.layer.cornerRadius = 15
+            imageView.clipsToBounds = true
         }
     }
     

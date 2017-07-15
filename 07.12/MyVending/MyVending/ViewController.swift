@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     var vendingMachine = VendingMachine()
     var buttonTag = Int()
+    var cardImage = UIImageView()
+    var x = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
     }
     
     func checkStockInit() {
@@ -63,7 +69,7 @@ class ViewController: UIViewController {
     
     func sendDataToLabel(stock: [String:Int]) {
         let view = self.view as! MyView
-
+        
         view.stockLabels.forEach { (label) in
             switch label.tag {
             case 1:
@@ -141,20 +147,34 @@ class ViewController: UIViewController {
         switch sender.tag {
         case 1:
             value = vendingMachine.buy(foodName: "페퍼로니피자", restaurant: "피자헛")
+            cardImage = UIImageView(image: #imageLiteral(resourceName: "pizza"))
         case 2:
             value = vendingMachine.buy(foodName: "불고기버거", restaurant: "맥도날드")
+            cardImage = UIImageView(image: #imageLiteral(resourceName: "hamburger"))
         case 3:
             value = vendingMachine.buy(foodName: "엽기떡볶이", restaurant: "엽기떡볶이")
+            cardImage = UIImageView(image: #imageLiteral(resourceName: "dduck"))
         case 4:
             value = vendingMachine.buy(foodName: "보쌈", restaurant: "원할머니보쌈")
+            cardImage = UIImageView(image: #imageLiteral(resourceName: "bossam"))
         case 5:
             value = vendingMachine.buy(foodName: "양념치킨", restaurant: "교촌치킨")
+            cardImage = UIImageView(image: #imageLiteral(resourceName: "chicken"))
         default:
             break
         }
         
-        checkAbleFood(foodList: (value?.foodList)!)
+        cardImage.frame = CGRect(x: x, y: 575, width: 140, height: 100)
+        x += 50
+        self.view.addSubview(cardImage)
+        
+        sendDataToLabel(stock: value!.stock)
+        checkAbleFood(foodList: value!.foodList)
         view.balanceLabel.text = String("잔액: \(value?.balance ?? 0)원")
+    }
+    
+    func setImageCoordinates(x: Int, y: Int) {
+//        let cardImage = UIImageView
     }
     
     func setInstance(vendingMachine: VendingMachine) {

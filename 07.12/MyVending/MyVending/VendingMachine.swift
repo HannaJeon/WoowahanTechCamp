@@ -84,8 +84,8 @@ class VendingMachine: NSObject, NSCoding {
     
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수
     func buy(foodName: String, restaurant: String) -> (stock: [String:Int], foodList: [String:[String]], balance: Int) {
-        guard var product = products[restaurant] else { return ([String:Int](), [String:[String]](), balance) }
-
+        guard let product = products[restaurant] else { return ([String:Int](), [String:[String]](), balance) }
+        
         for food in product {
             if food.getFoodName() == foodName {
                 if let index = product.index(of: food) {
@@ -94,7 +94,7 @@ class VendingMachine: NSObject, NSCoding {
                     } else {
                         purchaseList[food.getRestaurant()] = [food.getFoodName()]
                     }
-                    product.remove(at: index)
+                    products[restaurant]?.remove(at: index)
                     balance -= food.getPrice()
                     break
                 }
@@ -102,7 +102,7 @@ class VendingMachine: NSObject, NSCoding {
         }
         let foodList = checkAblePurchase(money: 0)
         
-        return ([restaurant:product.count], foodList.foodList, balance)
+        return ([restaurant:products[restaurant]!.count], foodList.foodList, balance)
     }
 //    - 실행 이후 구매한 음식 이름과 금액을 사전으로 추상화하고 전체 구매 목록을 배 열로 리턴하는 함수
 

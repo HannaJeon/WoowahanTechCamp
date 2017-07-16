@@ -79,6 +79,7 @@ class VendingMachine: NSObject, NSCoding {
                 }
             }
         }
+        
         return (result, balance)
     }
     

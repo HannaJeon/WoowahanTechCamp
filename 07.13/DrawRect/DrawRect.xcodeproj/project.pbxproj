@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		98CB4B321F1747CD00705A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B311F1747CD00705A64 /* AppDelegate.swift */; };
-		98CB4B341F1747CD00705A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B331F1747CD00705A64 /* ViewController.swift */; };
-		98CB4B371F1747CD00705A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B351F1747CD00705A64 /* Main.storyboard */; };
-		98CB4B391F1747CD00705A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B381F1747CD00705A64 /* Assets.xcassets */; };
-		98CB4B3C1F1747CD00705A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B3A1F1747CD00705A64 /* LaunchScreen.storyboard */; };
+		98CB4B501F17482800705A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B4F1F17482800705A64 /* AppDelegate.swift */; };
+		98CB4B521F17482800705A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B511F17482800705A64 /* ViewController.swift */; };
+		98CB4B551F17482800705A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B531F17482800705A64 /* Main.storyboard */; };
+		98CB4B571F17482800705A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B561F17482800705A64 /* Assets.xcassets */; };
+		98CB4B5A1F17482800705A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB4B581F17482800705A64 /* LaunchScreen.storyboard */; };
+		98CB4B621F17484200705A64 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB4B611F17484200705A64 /* MyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		98CB4B2E1F1747CD00705A64 /* DrawRect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawRect.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		98CB4B311F1747CD00705A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98CB4B331F1747CD00705A64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		98CB4B361F1747CD00705A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		98CB4B381F1747CD00705A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		98CB4B3B1F1747CD00705A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		98CB4B3D1F1747CD00705A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98CB4B4C1F17482800705A64 /* DrawRect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawRect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98CB4B4F1F17482800705A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		98CB4B511F17482800705A64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98CB4B541F17482800705A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98CB4B561F17482800705A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98CB4B591F17482800705A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98CB4B5B1F17482800705A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98CB4B611F17484200705A64 /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		98CB4B2B1F1747CD00705A64 /* Frameworks */ = {
+		98CB4B491F17482800705A64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,31 +37,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		98CB4B251F1747CD00705A64 = {
+		98CB4B431F17482800705A64 = {
 			isa = PBXGroup;
 			children = (
-				98CB4B301F1747CD00705A64 /* DrawRect */,
-				98CB4B2F1F1747CD00705A64 /* Products */,
+				98CB4B4E1F17482800705A64 /* DrawRect */,
+				98CB4B4D1F17482800705A64 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		98CB4B2F1F1747CD00705A64 /* Products */ = {
+		98CB4B4D1F17482800705A64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				98CB4B2E1F1747CD00705A64 /* DrawRect.app */,
+				98CB4B4C1F17482800705A64 /* DrawRect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98CB4B301F1747CD00705A64 /* DrawRect */ = {
+		98CB4B4E1F17482800705A64 /* DrawRect */ = {
 			isa = PBXGroup;
 			children = (
-				98CB4B311F1747CD00705A64 /* AppDelegate.swift */,
-				98CB4B331F1747CD00705A64 /* ViewController.swift */,
-				98CB4B351F1747CD00705A64 /* Main.storyboard */,
-				98CB4B381F1747CD00705A64 /* Assets.xcassets */,
-				98CB4B3A1F1747CD00705A64 /* LaunchScreen.storyboard */,
-				98CB4B3D1F1747CD00705A64 /* Info.plist */,
+				98CB4B4F1F17482800705A64 /* AppDelegate.swift */,
+				98CB4B511F17482800705A64 /* ViewController.swift */,
+				98CB4B611F17484200705A64 /* MyView.swift */,
+				98CB4B531F17482800705A64 /* Main.storyboard */,
+				98CB4B561F17482800705A64 /* Assets.xcassets */,
+				98CB4B581F17482800705A64 /* LaunchScreen.storyboard */,
+				98CB4B5B1F17482800705A64 /* Info.plist */,
 			);
 			path = DrawRect;
 			sourceTree = "<group>";
@@ -67,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		98CB4B2D1F1747CD00705A64 /* DrawRect */ = {
+		98CB4B4B1F17482800705A64 /* DrawRect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98CB4B401F1747CD00705A64 /* Build configuration list for PBXNativeTarget "DrawRect" */;
+			buildConfigurationList = 98CB4B5E1F17482800705A64 /* Build configuration list for PBXNativeTarget "DrawRect" */;
 			buildPhases = (
-				98CB4B2A1F1747CD00705A64 /* Sources */,
-				98CB4B2B1F1747CD00705A64 /* Frameworks */,
-				98CB4B2C1F1747CD00705A64 /* Resources */,
+				98CB4B481F17482800705A64 /* Sources */,
+				98CB4B491F17482800705A64 /* Frameworks */,
+				98CB4B4A1F17482800705A64 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -81,26 +84,26 @@
 			);
 			name = DrawRect;
 			productName = DrawRect;
-			productReference = 98CB4B2E1F1747CD00705A64 /* DrawRect.app */;
+			productReference = 98CB4B4C1F17482800705A64 /* DrawRect.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		98CB4B261F1747CD00705A64 /* Project object */ = {
+		98CB4B441F17482800705A64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = woowabrothers;
 				TargetAttributes = {
-					98CB4B2D1F1747CD00705A64 = {
+					98CB4B4B1F17482800705A64 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 98CB4B291F1747CD00705A64 /* Build configuration list for PBXProject "DrawRect" */;
+			buildConfigurationList = 98CB4B471F17482800705A64 /* Build configuration list for PBXProject "DrawRect" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,54 +111,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 98CB4B251F1747CD00705A64;
-			productRefGroup = 98CB4B2F1F1747CD00705A64 /* Products */;
+			mainGroup = 98CB4B431F17482800705A64;
+			productRefGroup = 98CB4B4D1F17482800705A64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98CB4B2D1F1747CD00705A64 /* DrawRect */,
+				98CB4B4B1F17482800705A64 /* DrawRect */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		98CB4B2C1F1747CD00705A64 /* Resources */ = {
+		98CB4B4A1F17482800705A64 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98CB4B3C1F1747CD00705A64 /* LaunchScreen.storyboard in Resources */,
-				98CB4B391F1747CD00705A64 /* Assets.xcassets in Resources */,
-				98CB4B371F1747CD00705A64 /* Main.storyboard in Resources */,
+				98CB4B5A1F17482800705A64 /* LaunchScreen.storyboard in Resources */,
+				98CB4B571F17482800705A64 /* Assets.xcassets in Resources */,
+				98CB4B551F17482800705A64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		98CB4B2A1F1747CD00705A64 /* Sources */ = {
+		98CB4B481F17482800705A64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98CB4B341F1747CD00705A64 /* ViewController.swift in Sources */,
-				98CB4B321F1747CD00705A64 /* AppDelegate.swift in Sources */,
+				98CB4B621F17484200705A64 /* MyView.swift in Sources */,
+				98CB4B521F17482800705A64 /* ViewController.swift in Sources */,
+				98CB4B501F17482800705A64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		98CB4B351F1747CD00705A64 /* Main.storyboard */ = {
+		98CB4B531F17482800705A64 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				98CB4B361F1747CD00705A64 /* Base */,
+				98CB4B541F17482800705A64 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		98CB4B3A1F1747CD00705A64 /* LaunchScreen.storyboard */ = {
+		98CB4B581F17482800705A64 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				98CB4B3B1F1747CD00705A64 /* Base */,
+				98CB4B591F17482800705A64 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -163,7 +167,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		98CB4B3E1F1747CD00705A64 /* Debug */ = {
+		98CB4B5C1F17482800705A64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,7 +217,7 @@
 			};
 			name = Debug;
 		};
-		98CB4B3F1F1747CD00705A64 /* Release */ = {
+		98CB4B5D1F17482800705A64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -256,7 +260,7 @@
 			};
 			name = Release;
 		};
-		98CB4B411F1747CD00705A64 /* Debug */ = {
+		98CB4B5F1F17482800705A64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -268,7 +272,7 @@
 			};
 			name = Debug;
 		};
-		98CB4B421F1747CD00705A64 /* Release */ = {
+		98CB4B601F17482800705A64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -283,24 +287,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		98CB4B291F1747CD00705A64 /* Build configuration list for PBXProject "DrawRect" */ = {
+		98CB4B471F17482800705A64 /* Build configuration list for PBXProject "DrawRect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98CB4B3E1F1747CD00705A64 /* Debug */,
-				98CB4B3F1F1747CD00705A64 /* Release */,
+				98CB4B5C1F17482800705A64 /* Debug */,
+				98CB4B5D1F17482800705A64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98CB4B401F1747CD00705A64 /* Build configuration list for PBXNativeTarget "DrawRect" */ = {
+		98CB4B5E1F17482800705A64 /* Build configuration list for PBXNativeTarget "DrawRect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98CB4B411F1747CD00705A64 /* Debug */,
-				98CB4B421F1747CD00705A64 /* Release */,
+				98CB4B5F1F17482800705A64 /* Debug */,
+				98CB4B601F17482800705A64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 98CB4B261F1747CD00705A64 /* Project object */;
+	rootObject = 98CB4B441F17482800705A64 /* Project object */;
 }

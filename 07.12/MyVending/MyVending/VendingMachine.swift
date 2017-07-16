@@ -10,108 +10,85 @@ import Foundation
 
 class VendingMachine: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
-        products = aDecoder.decodeObject(forKey: "products") as! [String : [Food]]
-        stockDic = aDecoder.decodeObject(forKey: "stockDic") as! [String : [String : Int]]
+        products = aDecoder.decodeObject(forKey: "products") as! [Food]
         balance = aDecoder.decodeInteger(forKey: "balance")
     }
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(products, forKey: "products")
-        aCoder.encode(stockDic, forKey: "stockDic")
         aCoder.encode(balance, forKey: "balance")
     }
     
     override init() {}
 
-    private var products = [String:[Food]]()
-    private var stockDic = [String:[String:Int]]()
-    private var purchaseList = [String:[String]]()
+    private var products = [Food]()
+    private var purchaseList = [String]()
     private var balance = Int()
     
 //    - 특정 음식을 추가하는 함수
     func addProduct(food: Food) {
         for _ in 0..<food.getCapacity() {
-            if let product = products[food.getRestaurant()] {
-                products[food.getRestaurant()] = product + [food]
-            } else {
-                products[food.getRestaurant()] = [food]
-            }
+            products.append(food)
         }
         
-        guard let list = products[food.getRestaurant()] else { return }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: [food.getRestaurant():list.count])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: checkStock())
+        NotificationCenter.default.post(name: NSNotification.Name("ableBuyProduct"), object: ViewController(), userInfo: ["foodList":checkAblePurchase(money: 0).foodList])
     }
     
 //    - 전체 음식 재고를 (사전으로 표현하는) 종류별로 리턴하는 함수
-    func checkStock() -> [String:[String:Int]] {
+    func checkStock() -> [String:Int] {
+        var stockDic = [String:Int]()
+        
         for product in products {
-            var stock = [String:Int]()
-            for food in product.value {
-                if let value = stock[food.getFoodName()] {
-                    stock[food.getFoodName()] = value + 1
-                } else {
-                    stock[food.getFoodName()] = 1
-                }
-            }
-            if let arr = product.value.first {
-                stockDic[arr.getRestaurant()] = stock
+            if let stock = stockDic[product.getKindOfProduct()] {
+                stockDic[product.getKindOfProduct()] = stock + 1
+            } else {
+                stockDic[product.getKindOfProduct()] = 1
             }
         }
         return stockDic
     }
-    
+
 //    - 금액을 입력하면 구매가능한 음식 목록을 리턴하는 함수
-    func checkAblePurchase(money: Int) -> (foodList: [String:[String]], balance: Int) {
+    func checkAblePurchase(money: Int) -> (foodList: [String], balance: Int) {
         balance += money
-        var result = [String:[String]]()
+        var foodList = [String]()
         
-        for product in products {
-//            print(product.value)
-//            let menuList = Set(product.value)
-//            print(menuList)
-            if let menu = product.value.first {
-                if balance >= menu.getPrice() {
-                    if let brand = result[menu.getRestaurant()] {
-                        result[menu.getRestaurant()] = brand + [menu.getFoodName()]
-                    } else {
-                        result[menu.getRestaurant()] = [menu.getFoodName()]
-                    }
-                }
+        let menuList = Set(products)
+        for menu in menuList {
+            if balance >= menu.getPrice() {
+                foodList.append(menu.getKindOfProduct())
             }
         }
-        
-        return (result, balance)
+        return (foodList, balance)
     }
-    
+
 //    - 특정 음식를 구매하면 잔액을 리턴하는 함수
-    func buy(foodName: String, restaurant: String) -> (stock: [String:Int], foodList: [String:[String]], balance: Int) {
-        guard let product = products[restaurant] else { return ([String:Int](), [String:[String]](), balance) }
-        
-        for food in product {
-            if food.getFoodName() == foodName {
-                if let index = product.index(of: food) {
-                    if let list = purchaseList[food.getRestaurant()] {
-                        purchaseList[food.getRestaurant()] = list + [food.getFoodName()]
-                    } else {
-                        purchaseList[food.getRestaurant()] = [food.getFoodName()]
-                    }
-                    products[restaurant]?.remove(at: index)
-                    balance -= food.getPrice()
+    func buy(kindOfProduct: String) -> Int {
+        for product in products {
+            if product.getKindOfProduct() == kindOfProduct {
+                if let index = products.index(of: product) {
+                    purchaseList.append(kindOfProduct)
+                    products.remove(at: index)
+                    balance -= product.getPrice()
                     break
                 }
             }
         }
-        let foodList = checkAblePurchase(money: 0)
-        
-        return ([restaurant:products[restaurant]!.count], foodList.foodList, balance)
+        NotificationCenter.default.post(name: NSNotification.Name("buyProduct"), object: ViewController(), userInfo: checkStock())
+        NotificationCenter.default.post(name: NSNotification.Name("ableBuyProduct"), object: ViewController(), userInfo: ["foodList":checkAblePurchase(money: 0).foodList])
+        return balance
     }
+    
 //    - 실행 이후 구매한 음식 이름과 금액을 사전으로 추상화하고 전체 구매 목록을 배 열로 리턴하는 함수
-
-    func checkPurchaseList() -> [String:[String]] {
+    func checkPurchaseList() -> [String] {
         return purchaseList
     }
     
     func reset() {
-        products = [String:[Food]]()
+        products = [Food]()
+        NotificationCenter.default.post(name: NSNotification.Name("buyProduct"), object: ViewController(), userInfo: checkStock())
+        NotificationCenter.default.post(name: NSNotification.Name("ableBuyProduct"), object: ViewController(), userInfo: ["foodList":checkAblePurchase(money: 0).foodList])
+
     }
 }

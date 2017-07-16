@@ -24,7 +24,7 @@ class Hamberger: Food {
             totalPrice += 2000
         }
         
-        super.init(restaurant: restaurant, capacity: capacity, price: price, foodName: foodName, kindOfProduct: "Hamberger")
+        super.init(restaurant: restaurant, capacity: capacity, price: totalPrice, foodName: foodName, kindOfProduct: "Hamberger")
     }
     
     required init?(coder aDecoder: NSCoder) {

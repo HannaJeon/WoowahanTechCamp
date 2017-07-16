@@ -27,10 +27,10 @@ class Food: NSObject, NSCoding {
         aCoder.encode(kindOfProduct, forKey: "kindOfProduct")
     }
 
-    override var hashValue: Int { get { return foodName.hashValue } }
+    override var hashValue: Int { get { return kindOfProduct.hashValue } }
     
     static func ==(lhs: Food, rhs: Food) -> Bool {
-        return lhs.foodName == rhs.foodName
+        return lhs.kindOfProduct == rhs.kindOfProduct
     }
 
     private let restaurant: String
@@ -63,6 +63,10 @@ class Food: NSObject, NSCoding {
     
     func getCapacity() -> Int {
         return capacity
+    }
+    
+    func getKindOfProduct() -> String {
+        return kindOfProduct
     }
     
     func setCapacity(capacity: Int) {

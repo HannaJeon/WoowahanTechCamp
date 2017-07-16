@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkStockInit()
+
+        sendDataToLabel(stock: vendingMachine.checkStock())
         foodImageInit()
         foodNameLabelsInit()
         addButtonsInit()
@@ -35,6 +36,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
         
         NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "buyProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotiAble), name: NSNotification.Name("ableBuyProduct"), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +58,7 @@ class ViewController: UIViewController {
     func stockLabelsInit() {
         stockLabels.forEach {
             if ($0.text?.isEmpty)! {
-                $0.text = "0개"
+                $0.text = "0 개"
             }
         }
     }
@@ -123,24 +126,13 @@ class ViewController: UIViewController {
         plusCoin5000.addTarget(self, action: #selector(insert(_:)), for: .touchUpInside)
         plusCoin1000.setTitle("+1000", for: .normal)
         plusCoin5000.setTitle("+5000", for: .normal)
-        balanceLabel.text = "잔액: 0원"
+        let value = vendingMachine.checkAblePurchase(money: 0)
+        checkAbleFood(foodList: value.foodList)
+        balanceLabel.text = "잔액: \(value.balance)원"
     }
 }
 
 extension ViewController {
-    func checkStockInit() {
-        let stock = vendingMachine.checkStock()
-        let key = stock.map { $0.key }
-        
-        for i in key {
-            stock.forEach { (food: (key: String, value: [String : Int])) in
-                if i == food.key {
-                    sendDataToLabel(stock: [food.key : food.value.values.first!])
-                }
-            }
-        }
-    }
-    
     func addButtonAction(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -148,9 +140,9 @@ extension ViewController {
         case 2:
             vendingMachine.addProduct(food: Hamberger(restaurant: "맥도날드", capacity: 10, price: 4000, foodName: "불고기버거", upgradeSize: true, withFrenchFry: true))
         case 3:
-            vendingMachine.addProduct(food: KoreanFood(restaurant: "엽기떡볶이", capacity: 10, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
+            vendingMachine.addProduct(food: Dduck(restaurant: "엽기떡볶이", capacity: 10, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
         case 4:
-            vendingMachine.addProduct(food: KoreanFood(restaurant: "원할머니보쌈", capacity: 10, price: 25000, foodName: "보쌈", spicyDegree: 0))
+            vendingMachine.addProduct(food: Bossam(restaurant: "원할머니보쌈", capacity: 10, price: 25000, foodName: "보쌈", extraSize: true))
         case 5:
             vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: 10, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
         default:
@@ -164,24 +156,45 @@ extension ViewController {
         }
     }
     
+    func receiveNotiAble(foodList: Notification) {
+        if let foodList = foodList.userInfo as? [String:[String]] {
+            checkAbleFood(foodList: Array(foodList.values).flatMap{ $0 })
+        }
+    }
+    
     func sendDataToLabel(stock: [String:Int]) {
         stockLabels.forEach { (label) in
             switch label.tag {
             case 1:
-                guard let value = stock["피자헛"] else { return }
-                label.text = "\(value)개"
+                if let value = stock["Pizza"] {
+                    label.text = "\(value) 개"
+                } else {
+                    label.text = "0 개"
+                }
             case 2:
-                guard let value = stock["맥도날드"] else { return }
-                label.text = "\(value)개"
+                if let value = stock["Hamberger"] {
+                    label.text = "\(value) 개"
+                } else {
+                    label.text = "0 개"
+                }
             case 3:
-                guard let value = stock["엽기떡볶이"] else { return }
-                label.text = "\(value)개"
+                if let value = stock["Dduck"] {
+                    label.text = "\(value) 개"
+                } else {
+                    label.text = "0 개"
+                }
             case 4:
-                guard let value = stock["원할머니보쌈"] else { return }
-                label.text = "\(value)개"
+                if let value = stock["Bossam"] {
+                    label.text = "\(value) 개"
+                } else {
+                    label.text = "0 개"
+                }
             case 5:
-                guard let value = stock["교촌치킨"] else { return }
-                label.text = "\(value)개"
+                if let value = stock["Chicken"] {
+                    label.text = "\(value) 개"
+                } else {
+                    label.text = "0 개"
+                }
             default:
                 break
             }
@@ -189,7 +202,7 @@ extension ViewController {
     }
     
     func insert(_ sender: UIButton) {
-        var value: (foodList: [String:[String]], balance: Int)
+        var value: (foodList: [String], balance: Int)
         
         if sender.tag == 1 {
             value = vendingMachine.checkAblePurchase(money: 1000)
@@ -200,56 +213,58 @@ extension ViewController {
         checkAbleFood(foodList: value.foodList)
         balanceLabel.text = String("잔액: \(value.balance)원")
     }
-    
-    func checkAbleFood(foodList: [String:[String]]) {
+
+    func checkAbleFood(foodList: [String]) {
         buyButtons.forEach { (button) in
             button.setTitleColor(UIColor.gray, for: .normal)
             button.isEnabled = false
         }
         
         if !foodList.isEmpty {
-            foodList.forEach({ (food: (key: String, value: [String])) in
-                switch food.key {
-                case "피자헛":
-                    buyButtons[0].setTitleColor(UIColor.red, for: .normal)
-                    buyButtons[0].isEnabled = true
-                case "맥도날드":
-                    buyButtons[1].setTitleColor(UIColor.red, for: .normal)
-                    buyButtons[1].isEnabled = true
-                case "엽기떡볶이":
-                    buyButtons[2].setTitleColor(UIColor.red, for: .normal)
-                    buyButtons[2].isEnabled = true
-                case "원할머니보쌈":
-                    buyButtons[3].setTitleColor(UIColor.red, for: .normal)
-                    buyButtons[3].isEnabled = true
-                case "교촌치킨":
-                    buyButtons[4].setTitleColor(UIColor.red, for: .normal)
-                    buyButtons[4].isEnabled = true
-                default:
-                    break
-                }
+            foodList.forEach({ (food) in
+                buyButtons.forEach({ (button) in
+                    switch (food, button.tag) {
+                    case ("Pizza", 1):
+                        button.setTitleColor(UIColor.red, for: .normal)
+                        button.isEnabled = true
+                    case ("Hamberger", 2):
+                        button.setTitleColor(UIColor.red, for: .normal)
+                        button.isEnabled = true
+                    case ("Dduck", 3):
+                        button.setTitleColor(UIColor.red, for: .normal)
+                        button.isEnabled = true
+                    case ("Bossam", 4):
+                        button.setTitleColor(UIColor.red, for: .normal)
+                        button.isEnabled = true
+                    case ("Chicken", 5):
+                        button.setTitleColor(UIColor.red, for: .normal)
+                        button.isEnabled = true
+                    default:
+                        break
+                    }
+                })
             })
         }
     }
     
     func buyFood(_ sender: UIButton) {
-        var value: (stock: [String:Int], foodList: [String:[String]], balance: Int)? = nil
+        var value = Int()
         
         switch sender.tag {
         case 1:
-            value = vendingMachine.buy(foodName: "페퍼로니피자", restaurant: "피자헛")
+            value = vendingMachine.buy(kindOfProduct: "Pizza")
             cardImage = UIImageView(image: #imageLiteral(resourceName: "pizza"))
         case 2:
-            value = vendingMachine.buy(foodName: "불고기버거", restaurant: "맥도날드")
+            value = vendingMachine.buy(kindOfProduct: "Hamberger")
             cardImage = UIImageView(image: #imageLiteral(resourceName: "hamburger"))
         case 3:
-            value = vendingMachine.buy(foodName: "엽기떡볶이", restaurant: "엽기떡볶이")
+            value = vendingMachine.buy(kindOfProduct: "Dduck")
             cardImage = UIImageView(image: #imageLiteral(resourceName: "dduck"))
         case 4:
-            value = vendingMachine.buy(foodName: "보쌈", restaurant: "원할머니보쌈")
+            value = vendingMachine.buy(kindOfProduct: "Bossam")
             cardImage = UIImageView(image: #imageLiteral(resourceName: "bossam"))
         case 5:
-            value = vendingMachine.buy(foodName: "양념치킨", restaurant: "교촌치킨")
+            value = vendingMachine.buy(kindOfProduct: "Chicken")
             cardImage = UIImageView(image: #imageLiteral(resourceName: "chicken"))
         default:
             break
@@ -259,9 +274,7 @@ extension ViewController {
         x += 50
         view.addSubview(cardImage)
         
-        sendDataToLabel(stock: value!.stock)
-        checkAbleFood(foodList: value!.foodList)
-        balanceLabel.text = String("잔액: \(value?.balance ?? 0)원")
+        balanceLabel.text = String("잔액: \(value)원")
     }
     
     func reset() {
@@ -275,10 +288,12 @@ extension ViewController {
     
     func addStock(capacity: Int) {
         vendingMachine.addProduct(food: Pizza(restaurant: "피자헛", capacity: capacity, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
+        vendingMachine.addProduct(food: Pizza(restaurant: "미스터피자", capacity: capacity, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
         vendingMachine.addProduct(food: Hamberger(restaurant: "맥도날드", capacity: capacity, price: 4000, foodName: "불고기버거", upgradeSize: true, withFrenchFry: true))
-        vendingMachine.addProduct(food: KoreanFood(restaurant: "엽기떡볶이", capacity: capacity, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
-        vendingMachine.addProduct(food: KoreanFood(restaurant: "원할머니보쌈", capacity: capacity, price: 25000, foodName: "보쌈", spicyDegree: 0))
+        vendingMachine.addProduct(food: Dduck(restaurant: "엽기떡볶이", capacity: capacity, price: 15000, foodName: "엽기떡볶이", spicyDegree: 30))
+        vendingMachine.addProduct(food: Bossam(restaurant: "원할머니보쌈", capacity: capacity, price: 25000, foodName: "보쌈", extraSize: true))
         vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: capacity, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
+        print(vendingMachine.checkStock())
     }
     
 }

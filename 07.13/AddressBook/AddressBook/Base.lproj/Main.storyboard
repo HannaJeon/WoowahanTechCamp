@@ -38,10 +38,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0id-hx-cEc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5sT-Qb-aXQ"/>
-                            <constraint firstAttribute="trailing" secondItem="0id-hx-cEc" secondAttribute="trailing" id="XNG-eW-IUp"/>
-                            <constraint firstItem="0id-hx-cEc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="Yan-ir-2Aj"/>
-                            <constraint firstItem="0id-hx-cEc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="n6M-2K-lvu"/>
+                            <constraint firstItem="0id-hx-cEc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="66k-cr-mml"/>
+                            <constraint firstItem="0id-hx-cEc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="TKW-1M-jUu"/>
+                            <constraint firstAttribute="trailing" secondItem="0id-hx-cEc" secondAttribute="trailing" id="m2o-Ry-lnu"/>
+                            <constraint firstItem="0id-hx-cEc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="uYR-lY-J7N"/>
                         </constraints>
                     </view>
                     <connections>

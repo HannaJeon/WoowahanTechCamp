@@ -24,21 +24,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         sendDataToLabel(stock: vendingMachine.checkStock())
         foodImageInit()
         foodNameLabelsInit()
         addButtonsInit()
         buyButtonsInit()
-        anotherSettingInit()
+        plusCoinButtonInit()
         stockLabelsInit()
         resetButtonInit()
+        
+        balanceLabel.text = "잔액: \(vendingMachine.getBalance())원"
         self.view.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
         
         NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "changeModel"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "buyProduct"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotiAble), name: NSNotification.Name("ableBuyProduct"), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,12 +46,11 @@ class ViewController: UIViewController {
     }
     
     func resetButtonInit() {
-        let viewController = ViewController(nibName: "viewController", bundle: nil)
         let resetButton = UIButton()
         resetButton.frame = CGRect(x: 700, y: 500, width: 100, height: 50)
         resetButton.setTitle("reset", for: .normal)
         resetButton.tintColor = UIColor.red
-        resetButton.addTarget(viewController, action: #selector(viewController.reset), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
         self.view.addSubview(resetButton)
     }
     
@@ -120,17 +118,22 @@ class ViewController: UIViewController {
             button.isEnabled = false
             button.addTarget(self, action: #selector(buyFood(_:)), for: .touchUpInside)
         }
+        buyBottonChange()
     }
     
-    func anotherSettingInit() {
+    func plusCoinButtonInit() {
         plusCoin1000.addTarget(self, action: #selector(insert(_:)), for: .touchUpInside)
         plusCoin5000.addTarget(self, action: #selector(insert(_:)), for: .touchUpInside)
         plusCoin1000.setTitle("+1000", for: .normal)
         plusCoin5000.setTitle("+5000", for: .normal)
-        let value = vendingMachine.checkAblePurchase(money: 0)
-        checkAbleFood(foodList: value.foodList)
-        balanceLabel.text = "잔액: \(value.balance)원"
     }
+    
+    func buyBottonChange() {
+        let balance = vendingMachine.getBalance()
+        let foodList = vendingMachine.checkAblePurchase(currentBalance: balance)
+        checkAbleFood(foodList: foodList)
+    }
+    
 }
 
 extension ViewController {
@@ -154,75 +157,58 @@ extension ViewController {
     func receiveNoti(_ notification: Notification) {
         if let userInfo = notification.userInfo as? [String:Any] {
             print(userInfo)
-//            if (userInfo["stock"] != nil) {
-//                sendDataToLabel(stock: userInfo["stock"])
-//            }
-//            if let foodList = userInfo["ableFoodList"] {
-//                checkAbleFood(foodList: Array(foodList.flatMap{ $0 }))
-//            }
-//        }
+            if let stock = userInfo["stock"] as? [Food:Int] {
+                sendDataToLabel(stock: stock)
+            } else if let foodList = userInfo["ableFoodList"] as? [Food] {
+                checkAbleFood(foodList: foodList)
+            } else if let test = userInfo["buyList"] as? [String] {
+                print(test,123456789)
+                addImageView(cardImage: cardImage)
+            }
+            
         }
     }
     
-//    func receiveNotiAble(foodList: Notification) {
-//        if let foodList = foodList.userInfo as? [String:[String]] {
-//            checkAbleFood(foodList: Array(foodList.values).flatMap{ $0 })
-//        }
-//    }
-    
-    func sendDataToLabel(stock: [String:Int]) {
-        stockLabels.forEach { (label) in
-            switch label.tag {
-            case 1:
-                if let value = stock["Pizza"] {
+    func sendDataToLabel(stock: [Food:Int]) {
+        stockLabels.forEach { $0.text = "0 개" }
+        
+        stock.forEach { (key, value) in
+            stockLabels.forEach { (label) in
+                switch (label.tag, key) {
+                case (1, is Pizza):
                     label.text = "\(value) 개"
-                } else {
-                    label.text = "0 개"
-                }
-            case 2:
-                if let value = stock["Hamberger"] {
+                case (2, is Hamberger):
                     label.text = "\(value) 개"
-                } else {
-                    label.text = "0 개"
+                case (3, is Dduck):
+                        label.text = "\(value) 개"
+                case (4, is Bossam):
+                        label.text = "\(value) 개"
+                case (5, is Chicken):
+                        label.text = "\(value) 개"
+                default:
+                    break
                 }
-            case 3:
-                if let value = stock["Dduck"] {
-                    label.text = "\(value) 개"
-                } else {
-                    label.text = "0 개"
-                }
-            case 4:
-                if let value = stock["Bossam"] {
-                    label.text = "\(value) 개"
-                } else {
-                    label.text = "0 개"
-                }
-            case 5:
-                if let value = stock["Chicken"] {
-                    label.text = "\(value) 개"
-                } else {
-                    label.text = "0 개"
-                }
-            default:
-                break
             }
         }
     }
     
     func insert(_ sender: UIButton) {
-        var value: (foodList: [String], balance: Int)
+//        var value: (foodList: [String], balance: Int)
         
         if sender.tag == 1 {
-            value = vendingMachine.checkAblePurchase(money: 1000)
+            vendingMachine.setBalance(balance: 1000)
         } else {
-            value = vendingMachine.checkAblePurchase(money: 5000)
+            vendingMachine.setBalance(balance: 5000)
         }
         
-        checkAbleFood(foodList: value.foodList)
-        balanceLabel.text = String("잔액: \(value.balance)원")
+        let balance = vendingMachine.getBalance()
+        let foodList = vendingMachine.checkAblePurchase(currentBalance: balance)
+        checkAbleFood(foodList: foodList)
+        balanceLabel.text = String("잔액: \(balance)원")
     }
 
-    func checkAbleFood(foodList: [String]) {
+    func checkAbleFood(foodList: [Food]) {
+        print(foodList, "foodListtttttt")
         buyButtons.forEach { (button) in
             button.setTitleColor(UIColor.gray, for: .normal)
             button.isEnabled = false
@@ -232,19 +218,19 @@ extension ViewController {
             foodList.forEach({ (food) in
                 buyButtons.forEach({ (button) in
                     switch (food, button.tag) {
-                    case ("Pizza", 1):
+                    case (is Pizza, 1):
                         button.setTitleColor(UIColor.red, for: .normal)
                         button.isEnabled = true
-                    case ("Hamberger", 2):
+                    case (is Hamberger, 2):
                         button.setTitleColor(UIColor.red, for: .normal)
                         button.isEnabled = true
-                    case ("Dduck", 3):
+                    case (is Dduck, 3):
                         button.setTitleColor(UIColor.red, for: .normal)
                         button.isEnabled = true
-                    case ("Bossam", 4):
+                    case (is Bossam, 4):
                         button.setTitleColor(UIColor.red, for: .normal)
                         button.isEnabled = true
-                    case ("Chicken", 5):
+                    case (is Chicken, 5):
                         button.setTitleColor(UIColor.red, for: .normal)
                         button.isEnabled = true
                     default:
@@ -257,6 +243,7 @@ extension ViewController {
     
     func buyFood(_ sender: UIButton) {
         var value = Int()
+//        var cardImage = UIImageView()
         
         switch sender.tag {
         case 1:
@@ -277,11 +264,9 @@ extension ViewController {
         default:
             break
         }
-        // 구매목록이 변경되었을 때 벤딩머신 노티피케이션
-        cardImage.frame = CGRect(x: x, y: 575, width: 140, height: 100)
-        x += 50
-        view.addSubview(cardImage)
         
+        buyBottonChange()
+//        addImageView(cardImage: cardImage)
         balanceLabel.text = String("잔액: \(value)원")
     }
     
@@ -303,6 +288,14 @@ extension ViewController {
         vendingMachine.addProduct(food: Bossam(restaurant: "원할머니보쌈", capacity: capacity, price: 25000, foodName: "보쌈", extraSize: true))
         vendingMachine.addProduct(food: Chicken(restaurant: "교촌치킨", capacity: capacity, price: 18000, foodName: "양념치킨", spicy: true, withBeer: true))
         print(vendingMachine.checkStock())
+    }
+    
+    func addImageView(cardImage: UIImageView) {
+        // 구매목록이 변경되었을 때 벤딩머신 노티피케이션
+        print(12345)
+        cardImage.frame = CGRect(x: x, y: 575, width: 140, height: 100)
+        x += 50
+        view.addSubview(cardImage)
     }
     
 }

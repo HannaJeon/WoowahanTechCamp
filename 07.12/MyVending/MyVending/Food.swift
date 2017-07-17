@@ -27,8 +27,16 @@ class Food: NSObject, NSCoding {
         aCoder.encode(kindOfProduct, forKey: "kindOfProduct")
     }
 
-//    override var hashValue: Int { get { return kindOfProduct.hashValue } }
-//    
+    override var hashValue: Int { return kindOfProduct.hashValue }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? Food {
+            return object.kindOfProduct == self.kindOfProduct
+        } else {
+            return false
+        }
+    }
+    
 //    static func ==(lhs: Food, rhs: Food) -> Bool {
 //        return lhs.kindOfProduct == rhs.kindOfProduct
 //    }

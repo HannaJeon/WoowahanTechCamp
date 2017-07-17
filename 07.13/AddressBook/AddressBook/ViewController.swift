@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let synthesizer = AVSpeechSynthesizer()
     
     let nameArray = [
         [ "ᄀ" : ["김다인","김수완","김준영","김하은","김형종"] ],
@@ -30,6 +32,16 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func speakSomething(name: String) {
+        synthesizer.stopSpeaking(at: .immediate)
+        let mutableName : NSMutableString = NSMutableString.init(string: name)
+        CFStringTransform(mutableName, nil, kCFStringTransformToLatin, Bool(0))
+        let utterance = AVSpeechUtterance(string: String(mutableName))
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
     }
 
 }
@@ -57,6 +69,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let header = nameArray.flatMap { Array($0.keys) }
         return header[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row % 2 == 0 {
+            return 50
+        } else {
+            return 40
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        if let name = cell?.textLabel?.text {
+            speakSomething(name: name)
+        }
     }
     
 }

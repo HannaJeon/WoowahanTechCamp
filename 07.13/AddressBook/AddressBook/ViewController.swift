@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let synthesizer = AVSpeechSynthesizer()
     
-    let nameArray = [
+    var nameArray = [
         [ "ᄀ" : ["김다인","김수완","김준영","김하은","김형종"] ],
         [ "ᄇ" : ["박예준","박진수"] ],
         [ "ᄉ" : ["서동욱","송통일"] ],
@@ -84,6 +84,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let name = cell?.textLabel?.text {
             speakSomething(name: name)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            if let header = self.tableView.headerView(forSection: indexPath.row) {
+                
+            }
         }
     }
     

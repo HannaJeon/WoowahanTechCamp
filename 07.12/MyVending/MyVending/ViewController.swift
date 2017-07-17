@@ -35,9 +35,10 @@ class ViewController: UIViewController {
         resetButtonInit()
         self.view.backgroundColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "buyProduct"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotiAble), name: NSNotification.Name("ableBuyProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "changeModel"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "addProduct"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNoti), name: NSNotification.Name(rawValue: "buyProduct"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotiAble), name: NSNotification.Name("ableBuyProduct"), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -151,16 +152,23 @@ extension ViewController {
     }
     
     func receiveNoti(_ notification: Notification) {
-        if let stock = notification.userInfo as? [String:Int] {
-            sendDataToLabel(stock: stock)
+        if let userInfo = notification.userInfo as? [String:Any] {
+            print(userInfo)
+//            if (userInfo["stock"] != nil) {
+//                sendDataToLabel(stock: userInfo["stock"])
+//            }
+//            if let foodList = userInfo["ableFoodList"] {
+//                checkAbleFood(foodList: Array(foodList.flatMap{ $0 }))
+//            }
+//        }
         }
     }
     
-    func receiveNotiAble(foodList: Notification) {
-        if let foodList = foodList.userInfo as? [String:[String]] {
-            checkAbleFood(foodList: Array(foodList.values).flatMap{ $0 })
-        }
-    }
+//    func receiveNotiAble(foodList: Notification) {
+//        if let foodList = foodList.userInfo as? [String:[String]] {
+//            checkAbleFood(foodList: Array(foodList.values).flatMap{ $0 })
+//        }
+//    }
     
     func sendDataToLabel(stock: [String:Int]) {
         stockLabels.forEach { (label) in
@@ -269,7 +277,7 @@ extension ViewController {
         default:
             break
         }
-        
+        // 구매목록이 변경되었을 때 벤딩머신 노티피케이션
         cardImage.frame = CGRect(x: x, y: 575, width: 140, height: 100)
         x += 50
         view.addSubview(cardImage)
@@ -287,6 +295,7 @@ extension ViewController {
     }
     
     func addStock(capacity: Int) {
+        // enum으로 반복되는 것들 정리
         vendingMachine.addProduct(food: Pizza(restaurant: "피자헛", capacity: capacity, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
         vendingMachine.addProduct(food: Pizza(restaurant: "미스터피자", capacity: capacity, price: 20000, foodName: "페퍼로니피자", extraCheese: false))
         vendingMachine.addProduct(food: Hamberger(restaurant: "맥도날드", capacity: capacity, price: 4000, foodName: "불고기버거", upgradeSize: true, withFrenchFry: true))

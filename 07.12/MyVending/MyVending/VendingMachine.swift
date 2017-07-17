@@ -30,9 +30,10 @@ class VendingMachine: NSObject, NSCoding {
         for _ in 0..<food.getCapacity() {
             products.append(food)
         }
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: checkStock())
-        NotificationCenter.default.post(name: NSNotification.Name("ableBuyProduct"), object: ViewController(), userInfo: ["foodList":checkAblePurchase(money: 0).foodList])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeModel"), object: ViewController(), userInfo: ["stock" : checkStock(), "ableFoodList":checkAblePurchase(money: 0).foodList])
+        // 노티 하나로 합체시키기
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addProduct"), object: ViewController(), userInfo: checkStock())
+//        NotificationCenter.default.post(name: NSNotification.Name("ableBuyProduct"), object: ViewController(), userInfo: ["foodList":checkAblePurchase(money: 0).foodList])
     }
     
 //    - 전체 음식 재고를 (사전으로 표현하는) 종류별로 리턴하는 함수

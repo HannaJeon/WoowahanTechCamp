@@ -14,7 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
 //    @IBOutlet weak var normalPriceLabel: UILabel!
 //    @IBOutlet weak var salePriceLabel: UILabel!
-    var badgeLabel = UILabel()
+    var badgeLabels = [UILabel]()
     var normalPriceLabel = UILabel()
     var salePriceLabel = UILabel()
     
@@ -26,7 +26,7 @@ class CustomTableViewCell: UITableViewCell {
         descriptionLabel.font = UIFont(name: descriptionLabel.font.fontName, size: 15)
         descriptionLabel.textColor = UIColor(red: 154/255, green: 154/255, blue: 154/255, alpha: 1)
         priceLabelinit()
-//
+
         self.contentView.addSubview(salePriceLabel)
         self.contentView.addSubview(normalPriceLabel)
     }
@@ -47,7 +47,9 @@ class CustomTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         priceLabelinit()
-        badgeLabel.removeFromSuperview()
+        for badgeLabel in badgeLabels {
+            badgeLabel.removeFromSuperview()
+        }
         labelXPoint = 118
     }
     
@@ -74,14 +76,17 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func makeBadgeLabel(badge: String) {
-        badgeLabel.backgroundColor = UIColor(red: 162/255, green: 120/255, blue: 186/255, alpha: 1)
-        badgeLabel.frame = CGRect(x: labelXPoint, y: 83, width: 47, height: 18)
-        labelXPoint += Int(badgeLabel.bounds.width + 5)
-        badgeLabel.text = badge
-        badgeLabel.textAlignment = .center
-        badgeLabel.textColor = UIColor.white
-        badgeLabel.font = UIFont(name: badgeLabel.font.fontName, size: 10)
-        self.contentView.addSubview(badgeLabel)
+        for badgeLabel in badgeLabels {
+            badgeLabel.backgroundColor = UIColor(red: 162/255, green: 120/255, blue: 186/255, alpha: 1)
+            badgeLabel.frame = CGRect(x: labelXPoint, y: 83, width: 47, height: 18)
+            labelXPoint += Int(badgeLabel.bounds.width + 5)
+            badgeLabel.text = badge
+            badgeLabel.textAlignment = .center
+            badgeLabel.textColor = UIColor.white
+            badgeLabel.font = UIFont(name: badgeLabel.font.fontName, size: 10)
+            self.contentView.addSubview(badgeLabel)
+            badgeLabels.append(badgeLabel)
+        }
     }
 
 }

@@ -11,18 +11,42 @@ import UIKit
 class ViewController: UIViewController {
     var testArray = ["1","2","3","4"]
     @IBOutlet weak var tableView: UITableView!
-    var foodsInfoList = SerializationJson().makeModel(filenames: ["main", "course", "side", "soup"])
+//    var foodsInfoList = SerializationJson().makeModel(filenames: ["main", "course", "side", "soup"])
+    let networking = Networking()
+    var foodsInfoList = [[FoodInfo]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        networking.getJsonData(filePath: ["main", "course", "side", "soup"])
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changedViewby(reachability:)), name: NSNotification.Name("ReachabilityChanged"), object: Reachability.sharedInstance)
+        NotificationCenter.default.addObserver(self, selector: #selector(changedFoodInfo(_:)), name: NSNotification.Name("changedFoodInfo"), object: networking)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func changedViewby(reachability notification: Notification) {
+        guard let status = notification.userInfo as? [String:Bool] else { return }
+        
+        self.view.layer.borderWidth = 2
+        if status["status"]! {
+            self.view.layer.borderColor = UIColor.green.cgColor
+        } else {
+            self.view.layer.borderColor = UIColor.red.cgColor
+        }
+    }
+    
+    func changedFoodInfo(_ notification: Notification) {
+        if let userInfo = notification.userInfo as? [String:[FoodInfo]] {
+            foodsInfoList.append(userInfo["foodInfo"]!)
+            tableView.reloadData()
+        }
     }
 
 }
@@ -30,32 +54,31 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print(foodsInfoList, foodsInfoList.count)
         return foodsInfoList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let foods = foodsInfoList[section].flatMap { $0.value }
-        return foods.count
+        return foodsInfoList[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
-        let foods = foodsInfoList.flatMap { Array($0.values) }
         
-        cell.titleLabel.text = foods[indexPath.section][indexPath.row].title
-        cell.descriptionLabel.text = foods[indexPath.section][indexPath.row].description
-        if let normalPrice = foods[indexPath.section][indexPath.row].normalPrice {
+        cell.titleLabel.text = foodsInfoList[indexPath.section][indexPath.row].title
+        cell.descriptionLabel.text = foodsInfoList[indexPath.section][indexPath.row].description
+        if let normalPrice = foodsInfoList[indexPath.section][indexPath.row].normalPrice {
             cell.normalPriceLabel.text = normalPrice
         } else {
             cell.emptyNormalPrice()
         }
-        if let salePrice = foods[indexPath.section][indexPath.row].salePrice {
+        if let salePrice = foodsInfoList[indexPath.section][indexPath.row].salePrice {
             cell.salePriceLabel.text = "\(salePrice)원"
         } else {
             cell.normalPriceLabel.text! += "원"
             cell.emptySalePrice()
         }
-        if let badges = foods[indexPath.section][indexPath.row].badge {
+        if let badges = foodsInfoList[indexPath.section][indexPath.row].badge {
             for badge in badges {
                 cell.makeBadgeLabel(badge: badge)
             }

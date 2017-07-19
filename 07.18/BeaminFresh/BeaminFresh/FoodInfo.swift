@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum Type {
+    case main, course, side, soup
+}
+
 class FoodInfo {
     internal private(set) var detailHash: String
     internal private(set) var image: String
@@ -15,17 +19,19 @@ class FoodInfo {
     internal private(set) var deliveryType: [String]
     internal private(set) var title: String
     internal private(set) var description: String
+    internal private(set) var type: Type
     internal private(set) var normalPrice: String?
     internal private(set) var salePrice: String?
     internal private(set) var badge: [String]?
     
-    init(detailHash: String, image: String, alt: String, deliveryType: [String], title: String, description: String, normalPrice: String?, salePrice: String?, badge: [String]?) {
+    init(detailHash: String, image: String, alt: String, deliveryType: [String], title: String, description: String, type: Type, normalPrice: String?, salePrice: String?, badge: [String]?) {
         self.detailHash = detailHash
         self.image = image
         self.alt = alt
         self.deliveryType = deliveryType
         self.title = title
         self.description = description
+        self.type = type
         self.normalPrice = normalPrice
         self.salePrice = salePrice
         self.badge = badge

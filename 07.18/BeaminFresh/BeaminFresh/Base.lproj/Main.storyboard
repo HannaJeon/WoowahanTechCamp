@@ -55,6 +55,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="cR9-90-AuP" id="taf-JJ-J37"/>
+                                            <outlet property="foodImageView" destination="yEr-zX-IR7" id="s9e-0e-dBO"/>
                                             <outlet property="titleLabel" destination="dco-DW-Qf0" id="RuO-5z-HOY"/>
                                         </connections>
                                     </tableViewCell>

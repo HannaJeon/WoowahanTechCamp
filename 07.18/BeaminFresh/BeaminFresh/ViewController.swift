@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     var testArray = ["1","2","3","4"]
     @IBOutlet weak var tableView: UITableView!
-//    var foodsInfoList = SerializationJson().makeModel(filenames: ["main", "course", "side", "soup"])
     let networking = Networking()
     var foodsInfoList = [[FoodInfo]]()
     
@@ -81,6 +80,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.makeBadgeLabel(badge: badge)
             }
         }
+        
+        cell.foodImageView.image = networking.getCacheImage(filename: foodsInfoList[indexPath.section][indexPath.row].detailHash)
         return cell
     }
     

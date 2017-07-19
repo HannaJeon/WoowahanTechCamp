@@ -29,6 +29,8 @@ class Networking {
                  
                     contents.forEach({ (content) in
                         let info = FoodInfo(detailHash: content["detail_hash"] as! String, image: content["image"] as! String, alt: content["alt"] as! String, deliveryType: content["delivery_type"] as! [String], title: content["title"] as! String, description: content["description"] as! String, type: type, normalPrice: content["n_price"] as? String ?? nil, salePrice: content["s_price"] as? String ?? nil, badge: content["badge"] as? [String] ?? nil)
+                        
+                        self.downloadImage(url: content["image"] as! String, hash: content["detail_hash"] as! String)
                         foodList.append(info)
                     })
                 }
@@ -51,17 +53,25 @@ class Networking {
         }
     }
     
-    func downloadImage(url: String) {
+    func downloadImage(url: String, hash: String) {
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+            let fileURL = path.appendingPathComponent("\(hash).png")
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
         
-        
-//        KingfisherManager.shared.cache.cachePath(forKey: "url")
-//        Alamofire.request(url).responseData { (response) in
-//            print(response)
-//            let fileurl = try? FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//            print(fileurl)
-//            let image = UIImage(contentsOfFile: String(describing: fileurl))
-//            print(image)
-//        }
+        Alamofire.download(url, to: destination).response { response in
+            if let error = response.error {
+                print(error)
+            }
+        }
+    }
+    
+    func getCacheImage(filename: String) -> UIImage? {
+        let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        let image = UIImage(contentsOfFile: url.path)
+
+        return image ?? nil
     }
     
 }

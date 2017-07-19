@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class Networking {
     
@@ -41,27 +42,22 @@ class Networking {
     
     func getFoodDetail(hash: String) {
         Alamofire.request("\(getURL())/detail/\(hash)").responseJSON { (response) in
-            let contents = response.result.value as! [String:Any]
-            print(contents)
-            print("==================================")
-            if let hash = contents["hash"] as? String,
-            let data = contents["data"] as? [String:Any],
-            let productDescription = data["product_description"] as? String,
-            let topImage = data["top_image"] as? String,
-                let thumbImage = data["thumb_image"] as? [String]{
-//            let detailSection = data["detail_section"] as? [String],
-//            let deliveryInfo = data["delivery_info"] as? String,
-//            let deliveryFee = data["delivery_fee"] as? String,
-//            let prices = data["prices"] as? [String],
-//            let point = data["point"] as? String {
-                print(productDescription)
-                print(topImage)
-                print(thumbImage)
-//                print(detailSection)
-//                print(deliveryInfo)
-//                print(deliveryFee)
-//                print(prices)
-//                print(point)
+            guard let jsonData = response.data else { return }
+            
+            let contents = JSON(data: jsonData).dictionaryValue
+            if let data = contents["data"]?.dictionaryValue,
+            let hash = contents["hash"]?.stringValue,
+            let productDescription = data["product_description"]?.stringValue,
+            let topImage = data["top_image"]?.stringValue,
+            let thumbImage = data["thumb_images"]?.arrayValue.map({ $0.stringValue }),
+            let detailSection = data["detail_section"]?.arrayValue.map({ $0.stringValue }),
+            let deliveryInfo = data["delivery_info"]?.stringValue,
+            let deliveryFee = data["delivery_fee"]?.stringValue,
+            let prices = data["prices"]?.arrayValue.map({ $0.stringValue }),
+                let point = data["point"]?.stringValue {
+                
+                let foodDetail = FoodDetail(hash: hash, productDescription: productDescription, topImage: topImage, thumbImage: thumbImage, detailSection: detailSection, deliveryInfo: deliveryInfo, deliveryFee: deliveryFee, prices: prices, point: point)
+                NotificationCenter.default.post(name: NSNotification.Name("getFoodDetail"), object: self, userInfo: ["foodDetail" : foodDetail])
             }
         }
     }

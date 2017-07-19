@@ -18,6 +18,7 @@
 		B51605001F1F19B40091E1D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FE1F1F19B40091E1D7 /* Networking.swift */; };
 		B51605011F1F19B40091E1D7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FF1F1F19B40091E1D7 /* Reachability.swift */; };
 		B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51605231F1F42E60091E1D7 /* DetailViewController.swift */; };
+		B51605261F1F71540091E1D7 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51605251F1F71540091E1D7 /* FoodDetail.swift */; };
 		C57D60F01595712BE7D7B463 /* Pods_BeaminFresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B51604FE1F1F19B40091E1D7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B51604FF1F1F19B40091E1D7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		B51605231F1F42E60091E1D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B51605251F1F71540091E1D7 /* FoodDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 		C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaminFresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				B51604FE1F1F19B40091E1D7 /* Networking.swift */,
 				B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */,
 				B51604B51F1DA2400091E1D7 /* FoodInfo.swift */,
+				B51605251F1F71540091E1D7 /* FoodDetail.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				B51604B81F1DA78F0091E1D7 /* CustomTableViewCell.swift in Sources */,
 				B51604A21F1D99250091E1D7 /* AppDelegate.swift in Sources */,
 				B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */,
+				B51605261F1F71540091E1D7 /* FoodDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

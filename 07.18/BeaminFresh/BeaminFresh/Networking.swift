@@ -26,7 +26,7 @@ class Networking {
                 
                 if let contents = response.result.value as? [[String:Any]] {
                     let type = filepath == "main" ? Type.main : filepath == "course" ? .course : filepath == "side" ? .side : .soup
-                    
+                 
                     contents.forEach({ (content) in
                         let info = FoodInfo(detailHash: content["detail_hash"] as! String, image: content["image"] as! String, alt: content["alt"] as! String, deliveryType: content["delivery_type"] as! [String], title: content["title"] as! String, description: content["description"] as! String, type: type, normalPrice: content["n_price"] as? String ?? nil, salePrice: content["s_price"] as? String ?? nil, badge: content["badge"] as? [String] ?? nil)
                         foodList.append(info)

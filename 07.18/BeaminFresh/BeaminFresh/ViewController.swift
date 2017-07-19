@@ -54,7 +54,6 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(foodsInfoList, foodsInfoList.count)
         return foodsInfoList.count
     }
     
@@ -73,9 +72,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.emptyNormalPrice()
         }
         if let salePrice = foodsInfoList[indexPath.section][indexPath.row].salePrice {
-            cell.salePriceLabel.text = "\(salePrice)원"
+            cell.salePriceLabel.text = "\(salePrice)"
         } else {
-            cell.normalPriceLabel.text! += "원"
             cell.emptySalePrice()
         }
         if let badges = foodsInfoList[indexPath.section][indexPath.row].badge {

@@ -54,8 +54,6 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func priceLabelinit() {
-        salePriceLabel = UILabel()
-        normalPriceLabel = UILabel()
         salePriceLabel.frame = CGRect(x: 192, y: 59, width: 70, height: 21)
         salePriceLabel.textColor = UIColor(red: 95/255, green: 192/255, blue: 189/255, alpha: 1)
         normalPriceLabel.font = UIFont(name: normalPriceLabel.font.fontName, size: 15)

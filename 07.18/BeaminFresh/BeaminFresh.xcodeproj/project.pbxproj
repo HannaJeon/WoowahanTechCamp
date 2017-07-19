@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B51604A21F1D99250091E1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A11F1D99250091E1D7 /* AppDelegate.swift */; };
-		B51604A41F1D99250091E1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A31F1D99250091E1D7 /* ViewController.swift */; };
+		B51604A41F1D99250091E1D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A31F1D99250091E1D7 /* MainViewController.swift */; };
 		B51604A71F1D99250091E1D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51604A51F1D99250091E1D7 /* Main.storyboard */; };
 		B51604A91F1D99250091E1D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51604A81F1D99250091E1D7 /* Assets.xcassets */; };
 		B51604AC1F1D99250091E1D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51604AA1F1D99250091E1D7 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,7 @@
 		B51604BA1F1DC62F0091E1D7 /* SerializationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */; };
 		B51605001F1F19B40091E1D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FE1F1F19B40091E1D7 /* Networking.swift */; };
 		B51605011F1F19B40091E1D7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FF1F1F19B40091E1D7 /* Reachability.swift */; };
+		B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51605231F1F42E60091E1D7 /* DetailViewController.swift */; };
 		C57D60F01595712BE7D7B463 /* Pods_BeaminFresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +26,7 @@
 		17156E3126E7402A92A9DFF4 /* Pods-BeaminFresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaminFresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaminFresh/Pods-BeaminFresh.debug.xcconfig"; sourceTree = "<group>"; };
 		B516049E1F1D99250091E1D7 /* BeaminFresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaminFresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51604A11F1D99250091E1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B51604A31F1D99250091E1D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B51604A31F1D99250091E1D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B51604A61F1D99250091E1D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B51604A81F1D99250091E1D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51604AB1F1D99250091E1D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +36,7 @@
 		B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationJson.swift; sourceTree = "<group>"; };
 		B51604FE1F1F19B40091E1D7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B51604FF1F1F19B40091E1D7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B51605231F1F42E60091E1D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaminFresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,7 +85,8 @@
 				B51604A11F1D99250091E1D7 /* AppDelegate.swift */,
 				B51605021F1F19BC0091E1D7 /* Model */,
 				B51604FF1F1F19B40091E1D7 /* Reachability.swift */,
-				B51604A31F1D99250091E1D7 /* ViewController.swift */,
+				B51604A31F1D99250091E1D7 /* MainViewController.swift */,
+				B51605231F1F42E60091E1D7 /* DetailViewController.swift */,
 				B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */,
 				B51604A51F1D99250091E1D7 /* Main.storyboard */,
 				B51604A81F1D99250091E1D7 /* Assets.xcassets */,
@@ -236,11 +239,12 @@
 			files = (
 				B51605011F1F19B40091E1D7 /* Reachability.swift in Sources */,
 				B51604BA1F1DC62F0091E1D7 /* SerializationJson.swift in Sources */,
-				B51604A41F1D99250091E1D7 /* ViewController.swift in Sources */,
+				B51604A41F1D99250091E1D7 /* MainViewController.swift in Sources */,
 				B51604B61F1DA2400091E1D7 /* FoodInfo.swift in Sources */,
 				B51605001F1F19B40091E1D7 /* Networking.swift in Sources */,
 				B51604B81F1DA78F0091E1D7 /* CustomTableViewCell.swift in Sources */,
 				B51604A21F1D99250091E1D7 /* AppDelegate.swift in Sources */,
+				B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

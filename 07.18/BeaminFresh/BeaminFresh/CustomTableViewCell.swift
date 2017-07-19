@@ -13,8 +13,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-//    @IBOutlet weak var normalPriceLabel: UILabel!
-//    @IBOutlet weak var salePriceLabel: UILabel!
     var badgeLabels = [UILabel]()
     var normalPriceLabel = UILabel()
     var salePriceLabel = UILabel()

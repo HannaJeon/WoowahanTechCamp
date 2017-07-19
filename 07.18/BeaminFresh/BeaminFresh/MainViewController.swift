@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     var testArray = ["1","2","3","4"]
     @IBOutlet weak var tableView: UITableView!
     let networking = Networking()
@@ -47,10 +48,18 @@ class ViewController: UIViewController {
             tableView.reloadData()
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! DetailViewController
+                controller.detailHash = foodsInfoList[indexPath.section][indexPath.row].detailHash
+            }
+        }
+    }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return foodsInfoList.count
@@ -81,7 +90,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        cell.foodImageView.image = networking.getCacheImage(filename: foodsInfoList[indexPath.section][indexPath.row].detailHash)
+        if let url = URL(string: foodsInfoList[indexPath.section][indexPath.row].image) {
+            cell.foodImageView.af_setImage(withURL: url)
+        }
+        
         return cell
     }
     

@@ -53,7 +53,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.makeBadgeLabel(badge: badge)
             }
         }
-        
         return cell
     }
     
@@ -61,11 +60,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 110
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let test = Bundle.main.loadNibNamed("Test", owner: self, options: nil)?.first as! TestTableViewCell
-        
-        return test
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            cell.alpha = 1
+        }
     }
+    
+    
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.clearsContextBeforeDrawing = true
+//    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        return test
+//    }
     
 }
 

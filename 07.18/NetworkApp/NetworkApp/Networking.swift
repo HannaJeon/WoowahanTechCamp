@@ -55,18 +55,4 @@ class Networking {
 //        }
     }
     
-//    func reachability() {
-//        let network = Alamofire.NetworkReachabilityManager()
-//        network?.startListening()
-//        network?.listener = { status in
-//            if status == .notReachable {
-//                print(status, 1)
-//                NotificationCenter.default.post(name: NSNotification.Name("changeReachability"), object: self, userInfo: ["reachability":false])
-//            } else if status == .reachable(.ethernetOrWiFi) {
-//                print(status, 2)
-//                NotificationCenter.default.post(name: NSNotification.Name("changeReachability"), object: self, userInfo: ["reachability":true])
-//            }
-//        }
-//    }
-    
 }

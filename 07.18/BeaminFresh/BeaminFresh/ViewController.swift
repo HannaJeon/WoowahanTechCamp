@@ -9,13 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var testArray = ["1","2","3","4"]
     @IBOutlet weak var tableView: UITableView!
-    var foodsInfo = SerializationJson().makeModel()
+    var foodsInfoList = SerializationJson().makeModel(filenames: ["main", "course", "side", "soup"])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -28,27 +28,34 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return foodsInfoList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodsInfo.count
+        let foods = foodsInfoList[section].flatMap { $0.value }
+        return foods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
+        let foods = foodsInfoList.flatMap { Array($0.values) }
         
-        cell.titleLabel.text = foodsInfo[indexPath.row].title
-        cell.descriptionLabel.text = foodsInfo[indexPath.row].description
-        if let normalPrice = foodsInfo[indexPath.row].normalPrice {
+        cell.titleLabel.text = foods[indexPath.section][indexPath.row].title
+        cell.descriptionLabel.text = foods[indexPath.section][indexPath.row].description
+        if let normalPrice = foods[indexPath.section][indexPath.row].normalPrice {
             cell.normalPriceLabel.text = normalPrice
         } else {
             cell.emptyNormalPrice()
         }
-        if let salePrice = foodsInfo[indexPath.row].salePrice {
+        if let salePrice = foods[indexPath.section][indexPath.row].salePrice {
             cell.salePriceLabel.text = "\(salePrice)원"
         } else {
             cell.normalPriceLabel.text! += "원"
             cell.emptySalePrice()
         }
-        if let badges = foodsInfo[indexPath.row].badge {
+        if let badges = foods[indexPath.section][indexPath.row].badge {
             for badge in badges {
                 cell.makeBadgeLabel(badge: badge)
             }
@@ -60,22 +67,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 110
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return testArray[section]
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 1.0) {
             cell.alpha = 1
         }
     }
     
-    
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.clearsContextBeforeDrawing = true
-//    }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        return test
-//    }
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+
 }
 

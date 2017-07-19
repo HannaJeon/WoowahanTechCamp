@@ -26,7 +26,7 @@ class CustomTableViewCell: UITableViewCell {
         descriptionLabel.font = UIFont(name: descriptionLabel.font.fontName, size: 15)
         descriptionLabel.textColor = UIColor(red: 154/255, green: 154/255, blue: 154/255, alpha: 1)
         priceLabelinit()
-        
+//
         self.contentView.addSubview(salePriceLabel)
         self.contentView.addSubview(normalPriceLabel)
     }
@@ -47,16 +47,17 @@ class CustomTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         priceLabelinit()
-        
         badgeLabel.removeFromSuperview()
         labelXPoint = 118
     }
     
     func priceLabelinit() {
-        salePriceLabel.frame = CGRect(x: 192, y: 59, width: 64, height: 21)
+        salePriceLabel = UILabel()
+        normalPriceLabel = UILabel()
+        salePriceLabel.frame = CGRect(x: 192, y: 59, width: 70, height: 21)
         salePriceLabel.textColor = UIColor(red: 95/255, green: 192/255, blue: 189/255, alpha: 1)
         normalPriceLabel.font = UIFont(name: normalPriceLabel.font.fontName, size: 15)
-        normalPriceLabel.frame = CGRect(x: 118, y: 59, width: 64, height: 21)
+        normalPriceLabel.frame = CGRect(x: 118, y: 59, width: 75, height: 21)
         salePriceLabel.isHidden = false
         normalPriceLabel.isHidden = false
     }
@@ -74,9 +75,12 @@ class CustomTableViewCell: UITableViewCell {
     
     func makeBadgeLabel(badge: String) {
         badgeLabel.backgroundColor = UIColor(red: 162/255, green: 120/255, blue: 186/255, alpha: 1)
-        badgeLabel.frame = CGRect(x: labelXPoint, y: 83, width: 49, height: 21)
+        badgeLabel.frame = CGRect(x: labelXPoint, y: 83, width: 47, height: 18)
         labelXPoint += Int(badgeLabel.bounds.width + 5)
         badgeLabel.text = badge
+        badgeLabel.textAlignment = .center
+        badgeLabel.textColor = UIColor.white
+        badgeLabel.font = UIFont(name: badgeLabel.font.fontName, size: 10)
         self.contentView.addSubview(badgeLabel)
     }
 

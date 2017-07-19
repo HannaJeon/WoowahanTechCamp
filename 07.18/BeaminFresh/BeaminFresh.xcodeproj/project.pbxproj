@@ -16,6 +16,9 @@
 		B51604B61F1DA2400091E1D7 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B51F1DA2400091E1D7 /* FoodInfo.swift */; };
 		B51604B81F1DA78F0091E1D7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */; };
 		B51604BA1F1DC62F0091E1D7 /* SerializationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */; };
+		B51604EE1F1EDDEE0091E1D7 /* course.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604EB1F1EDDEE0091E1D7 /* course.json */; };
+		B51604EF1F1EDDEE0091E1D7 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604EC1F1EDDEE0091E1D7 /* side.json */; };
+		B51604F01F1EDDEE0091E1D7 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604ED1F1EDDEE0091E1D7 /* soup.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		B51604B51F1DA2400091E1D7 /* FoodInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
 		B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationJson.swift; sourceTree = "<group>"; };
+		B51604EB1F1EDDEE0091E1D7 /* course.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = course.json; sourceTree = "<group>"; };
+		B51604EC1F1EDDEE0091E1D7 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		B51604ED1F1EDDEE0091E1D7 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 				B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */,
 				B51604B51F1DA2400091E1D7 /* FoodInfo.swift */,
 				B51604B31F1D99350091E1D7 /* main.json */,
+				B51604EB1F1EDDEE0091E1D7 /* course.json */,
+				B51604EC1F1EDDEE0091E1D7 /* side.json */,
+				B51604ED1F1EDDEE0091E1D7 /* soup.json */,
 				B51604A51F1D99250091E1D7 /* Main.storyboard */,
 				B51604A81F1D99250091E1D7 /* Assets.xcassets */,
 				B51604AA1F1D99250091E1D7 /* LaunchScreen.storyboard */,
@@ -135,9 +144,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51604EE1F1EDDEE0091E1D7 /* course.json in Resources */,
 				B51604AC1F1D99250091E1D7 /* LaunchScreen.storyboard in Resources */,
 				B51604A91F1D99250091E1D7 /* Assets.xcassets in Resources */,
 				B51604B41F1D99350091E1D7 /* main.json in Resources */,
+				B51604EF1F1EDDEE0091E1D7 /* side.json in Resources */,
+				B51604F01F1EDDEE0091E1D7 /* soup.json in Resources */,
 				B51604A71F1D99250091E1D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

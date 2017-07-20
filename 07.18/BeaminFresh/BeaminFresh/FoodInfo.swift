@@ -36,4 +36,17 @@ class FoodInfo {
         self.salePrice = salePrice
         self.badge = badge
     }
+    
+    convenience init(foodInfo: [String:Any], type: Type) {
+        let detailHash = foodInfo["detail_hash"] as! String
+        let image = foodInfo["image"] as! String
+        let alt = foodInfo["alt"] as! String
+        let deliveryType = foodInfo["delivery_type"] as! [String]
+        let title = foodInfo["title"] as! String
+        let description = foodInfo["description"] as! String
+        let normalPrice = foodInfo["n_price"] as? String
+        let salePrice = foodInfo["s_price"] as? String
+        let badge = foodInfo["badge"] as? [String]
+        self.init(detailHash: detailHash, image: image, alt: alt, deliveryType: deliveryType, title: title, description: description, type: type, normalPrice: normalPrice, salePrice: salePrice, badge: badge)
+    }
 }

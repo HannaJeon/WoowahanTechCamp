@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class Networking {
     
@@ -29,8 +28,7 @@ class Networking {
                     let type = filepath == "main" ? Type.main : filepath == "course" ? .course : filepath == "side" ? .side : .soup
                  
                     contents.forEach({ (content) in
-                        let info = FoodInfo(detailHash: content["detail_hash"] as! String, image: content["image"] as! String, alt: content["alt"] as! String, deliveryType: content["delivery_type"] as! [String], title: content["title"] as! String, description: content["description"] as! String, type: type, normalPrice: content["n_price"] as? String ?? nil, salePrice: content["s_price"] as? String ?? nil, badge: content["badge"] as? [String] ?? nil)
-                        
+                        let info = FoodInfo(foodInfo: content, type: type)
 //                        self.downloadImage(url: content["image"] as! String, hash: content["detail_hash"] as! String)
                         foodList.append(info)
                     })
@@ -42,23 +40,28 @@ class Networking {
     
     func getFoodDetail(hash: String) {
         Alamofire.request("\(getURL())/detail/\(hash)").responseJSON { (response) in
-            guard let jsonData = response.data else { return }
+//            guard let jsonData = response.data else { return }
+            guard let contents = response.result.value as? [String:Any] else { return }
+            let data = contents["data"] as! [String:Any]
+            let foodDetail = FoodDetail(detailInfo: data, hash: hash)
+            NotificationCenter.default.post(name: NSNotification.Name("getFoodDetail"), object: self, userInfo: ["foodDetail" : foodDetail])
             
-            let contents = JSON(data: jsonData).dictionaryValue
-            if let data = contents["data"]?.dictionaryValue,
-            let hash = contents["hash"]?.stringValue,
-            let productDescription = data["product_description"]?.stringValue,
-            let topImage = data["top_image"]?.stringValue,
-            let thumbImage = data["thumb_images"]?.arrayValue.map({ $0.stringValue }),
-            let detailSection = data["detail_section"]?.arrayValue.map({ $0.stringValue }),
-            let deliveryInfo = data["delivery_info"]?.stringValue,
-            let deliveryFee = data["delivery_fee"]?.stringValue,
-            let prices = data["prices"]?.arrayValue.map({ $0.stringValue }),
-                let point = data["point"]?.stringValue {
-                
-                let foodDetail = FoodDetail(hash: hash, productDescription: productDescription, topImage: topImage, thumbImage: thumbImage, detailSection: detailSection, deliveryInfo: deliveryInfo, deliveryFee: deliveryFee, prices: prices, point: point)
-                NotificationCenter.default.post(name: NSNotification.Name("getFoodDetail"), object: self, userInfo: ["foodDetail" : foodDetail])
-            }
+//            let contents = JSON(data: jsonData).dictionaryValue
+//            contents
+//            if let data = contents["data"]?.dictionaryValue,
+//            let hash = contents["hash"]?.stringValue,
+//            let productDescription = data["product_description"]?.stringValue,
+//            let topImage = data["top_image"]?.stringValue,
+//            let thumbImage = data["thumb_images"]?.arrayValue.map({ $0.stringValue }),
+//            let detailSection = data["detail_section"]?.arrayValue.map({ $0.stringValue }),
+//            let deliveryInfo = data["delivery_info"]?.stringValue,
+//            let deliveryFee = data["delivery_fee"]?.stringValue,
+//            let prices = data["prices"]?.arrayValue.map({ $0.stringValue }),
+//                let point = data["point"]?.stringValue {
+//                
+//                let foodDetail = FoodDetail(hash: hash, productDescription: productDescription, topImage: topImage, thumbImage: thumbImage, detailSection: detailSection, deliveryInfo: deliveryInfo, deliveryFee: deliveryFee, prices: prices, point: point)
+
+//            }
         }
     }
     

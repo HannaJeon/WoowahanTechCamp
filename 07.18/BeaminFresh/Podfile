@@ -6,7 +6,6 @@ target 'BeaminFresh' do
   use_frameworks!
   pod 'Alamofire'
   pod 'AlamofireImage', '~> 3.1'
-  pod 'SwiftyJSON'
   # Pods for BeaminFresh
 
 end

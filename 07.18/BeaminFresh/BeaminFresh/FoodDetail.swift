@@ -33,4 +33,17 @@ class FoodDetail {
         self.point = point
     }
     
+    convenience init(detailInfo: [String:Any], hash: String) {
+        let hash = hash
+        let productDescription = detailInfo["product_description"] as! String
+        let topImage = detailInfo["top_image"] as! String
+        let thumbImage = detailInfo["thumb_images"] as! [String]
+        let detailSection = detailInfo["detail_section"] as! [String]
+        let deliveryInfo = detailInfo["delivery_info"] as! String
+        let deliveryFee = detailInfo["delivery_fee"] as! String
+        let prices = detailInfo["prices"] as! [String]
+        let point = detailInfo["point"] as! String
+        self.init(hash: hash, productDescription: productDescription, topImage: topImage, thumbImage: thumbImage, detailSection: detailSection, deliveryInfo: deliveryInfo, deliveryFee: deliveryFee, prices: prices, point: point)
+    }
+    
 }

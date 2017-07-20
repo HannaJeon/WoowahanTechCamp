@@ -11,6 +11,8 @@ import AlamofireImage
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var containerScrollView: UIScrollView!
+    
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -23,14 +25,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deliveryInfoLabel: UILabel!
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var userdeliveryFeeLabel: UILabel!
-    @IBOutlet weak var detailScrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     var detailHash = String()
     var foodDetail = FoodDetail()
     let networking = Networking()
-    
-//    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-//    var pageControl: UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +48,7 @@ class DetailViewController: UIViewController {
             foodDetail = userInfo["foodDetail"]!
         }
         setMainScrollView()
+        makeDetailImage()
     }
     
     func setMainScrollView() {
@@ -63,12 +63,23 @@ class DetailViewController: UIViewController {
             width += imageView.bounds.width
             mainScrollView.addSubview(imageView)
         }
+        mainScrollView.isPagingEnabled = true
         mainScrollView.contentSize.width = width
-        
-//        let width = mainImageView.bounds.width * CGFloat(foodDetail.thumbImage.count)
-//        let height = mainImageView.bounds.height
-//        mainScrollView.contentSize = CGSize(width: width, height: height)
-//        mainImageView.af_setImage(withURL: <#T##URL#>)
+    }
+    
+    func makeDetailImage() {
+        var height = CGFloat()
+        for i in 0..<foodDetail.detailSection.count {
+            let imageView = UIImageView()
+            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
+            let yPoint = containerView.frame.height * CGFloat(i)
+//            let height = self.view.frame.height + imageView.frame.height
+            imageView.frame = CGRect(x: containerScrollView.frame.minX, y: yPoint, width: self.view.frame.width, height: mainScrollView.frame.height)
+            height += imageView.frame.height
+            containerScrollView.addSubview(imageView)
+        }
+        containerScrollView.isPagingEnabled = true
+        containerScrollView.contentSize.height = height
     }
 
 }

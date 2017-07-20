@@ -207,7 +207,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="BMX-ii-qfq"/>
                     <connections>
+                        <outlet property="containerScrollView" destination="UL0-2i-qTT" id="qet-Jr-1nH"/>
+                        <outlet property="containerView" destination="QYy-MP-cP8" id="uaf-tL-6gs"/>
+                        <outlet property="deliveryFeeLabel" destination="e5a-zP-uV5" id="8A2-ds-f17"/>
+                        <outlet property="deliveryInfoLabel" destination="q5f-0R-gLG" id="8ic-go-AAF"/>
+                        <outlet property="deliveryLabel" destination="9Mc-No-1aF" id="tK4-H0-XvB"/>
+                        <outlet property="descriptionLabel" destination="3Wp-Oc-XrZ" id="aM1-pM-0PH"/>
                         <outlet property="mainScrollView" destination="hoh-eO-TJg" id="0EL-oM-lOV"/>
+                        <outlet property="normalPriceLabel" destination="H7Q-Fa-dNo" id="4Vx-ZS-RRh"/>
+                        <outlet property="pointLabel" destination="YRI-7o-BSE" id="NoF-0I-8DO"/>
+                        <outlet property="priceLabel" destination="sCw-ph-Pwz" id="U0l-US-1Ru"/>
+                        <outlet property="salePriceLabel" destination="EOE-jW-Gov" id="kUS-30-hgZ"/>
+                        <outlet property="titleLabel" destination="EeS-4p-Ekh" id="IC4-c3-6cT"/>
+                        <outlet property="userPointLabel" destination="6dn-W8-adt" id="8qg-Ha-oeA"/>
+                        <outlet property="userdeliveryFeeLabel" destination="8hE-AW-Kpr" id="fnX-Dh-zae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtl-7p-uMv" userLabel="First Responder" sceneMemberID="firstResponder"/>

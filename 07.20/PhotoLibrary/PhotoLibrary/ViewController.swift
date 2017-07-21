@@ -38,12 +38,17 @@ class ViewController: UIViewController {
     }
     
     func getVideo() {
-        photoLibrary.setVideo(at: 0) { (item) in
-            if let video = item {
-                self.videoItems.append(video)
-                self.collectionView.reloadData()
+        DispatchQueue.global(qos: .background).async {
+            self.photoLibrary.setVideo(at: 0) { (item) in
+                if let video = item {
+                    self.videoItems.append(video)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
             }
         }
+        
     }
 }
 
@@ -67,9 +72,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedImage.append(images[indexPath.row]!)
-        
-//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

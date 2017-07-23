@@ -1,15 +1,14 @@
 //
-//  DetailViewController.swift
+//  DetailScrollView.swift
 //  BeaminFresh
 //
-//  Created by HannaJeon on 2017. 7. 19..
+//  Created by HannaJeon on 2017. 7. 23..
 //  Copyright © 2017년 HannaJeon. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-class DetailViewController: UIViewController {
+class DetailScrollView: UIScrollView {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -26,36 +25,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var userdeliveryFeeLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     var orderButton = UIButton()
-    
-    var detailHash = String()
-    var detailTitle = String()
-    var foodDetail = FoodDetail()
-    let networking = Networking()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        networking.getFoodDetail(hash: detailHash)
-        viewinit()
-        makeOderButton()
-        orderButton.addTarget(self, action: #selector(orderButtonAction), for: .touchUpInside)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(finishedGetFoodDetail(_:)), name: NSNotification.Name("getFoodDetail"), object: networking)
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func finishedGetFoodDetail(_ notification: Notification) {
-        if let userInfo = notification.userInfo as? [String:FoodDetail] {
-            foodDetail = userInfo["foodDetail"]!
-        }
-        setMainScrollView()
-        makeDetailImage()
-        makeContainerView()
-    }
+    */
     
     func setMainScrollView() {
         var width = CGFloat()
@@ -78,7 +55,7 @@ class DetailViewController: UIViewController {
         var yPoint = mainScrollView.frame.height + containerView.frame.height
         for i in 0..<foodDetail.detailSection.count {
             let imageView = UIImageView()
-//            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
+            //            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
             let data = try? Data(contentsOf: URL(string: foodDetail.detailSection[i])!)
             guard let imageData = data else { return }
             
@@ -103,42 +80,18 @@ class DetailViewController: UIViewController {
         self.view.addSubview(orderButton)
     }
     
-    func orderButtonAction() {
-        let message = ["username" : "한나", "text" : "\(salePriceLabel.text!)-\(titleLabel.text!)"]
-        networking.postMessage(message: message)
-    }
-    
-    func viewinit() {
-        let textColor = UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)
-        salePriceLabel.textColor = UIColor(red: 112/255, green: 198/255, blue: 188/255, alpha: 1)
-        normalPriceLabel.textAlignment = .center
-        descriptionLabel.textColor = textColor
-        userPointLabel.textColor = textColor
-        deliveryInfoLabel.textColor = textColor
-        userdeliveryFeeLabel.textColor = textColor
-    }
-    
     func makeContainerView() {
-        let textColor = UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)
-        
         titleLabel.text = detailTitle
         descriptionLabel.text = foodDetail.productDescription
-        userPointLabel.text = foodDetail.point
-        deliveryInfoLabel.text = foodDetail.deliveryInfo
-        userdeliveryFeeLabel.text = foodDetail.deliveryFee
-        
         if foodDetail.prices.count == 2 {
             normalPriceLabel.text = foodDetail.prices.max()
             salePriceLabel.text = foodDetail.prices.min()
             
-            let attrString = NSMutableAttributedString(string: normalPriceLabel.text!)
-            let attributes = [NSBaselineOffsetAttributeName: 0, NSForegroundColorAttributeName: textColor, NSStrikethroughStyleAttributeName: 1] as [String : Any]
-            attrString.addAttributes(attributes, range: NSMakeRange(0, attrString.length))
-            normalPriceLabel.attributedText = attrString
         } else {
             normalPriceLabel.isHidden = true
             salePriceLabel.text = foodDetail.prices[0]
         }
+        print(foodDetail.prices)
     }
 
 }

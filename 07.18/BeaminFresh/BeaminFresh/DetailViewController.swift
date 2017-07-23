@@ -72,15 +72,24 @@ class DetailViewController: UIViewController {
         var yPoint = mainScrollView.frame.height + containerView.frame.height
         for i in 0..<foodDetail.detailSection.count {
             let imageView = UIImageView()
-            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
-            imageView.frame = CGRect(x: 0, y: yPoint, width: self.view.frame.width, height: 500)
-            imageView.backgroundColor = UIColor.white
+//            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
+            let data = try? Data(contentsOf: URL(string: foodDetail.detailSection[i])!)
+            guard let imageData = data else { return }
+            
+            let image = UIImage(data: imageData)
+            let imageHeight = (image?.size.height)! / ((image?.size.width)! / self.view.frame.width)
+            imageView.image = image
+            imageView.frame = CGRect(x: 0, y: yPoint, width: self.view.frame.width, height: imageHeight)
             imageView.contentMode = .scaleAspectFit
+            
             containerScrollView.addSubview(imageView)
             yPoint += imageView.frame.height
             height = imageView.frame.maxY
         }
         containerScrollView.contentSize.height = height
+//        button.setTitle("주문하기", for: .normal)
+//        button.backgroundColor = UIColor.red
+//        button.frame = CGRect(x: 0, y: self.view.frame.maxY-50, width: self.view.frame.width, height: 50)
     }
 
 }

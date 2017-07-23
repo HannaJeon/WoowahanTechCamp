@@ -29,7 +29,6 @@ class Networking {
                  
                     contents.forEach({ (content) in
                         let info = FoodInfo(foodInfo: content, type: type)
-//                        self.downloadImage(url: content["image"] as! String, hash: content["detail_hash"] as! String)
                         foodList.append(info)
                     })
                 }

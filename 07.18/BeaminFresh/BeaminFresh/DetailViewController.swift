@@ -74,25 +74,23 @@ class DetailViewController: UIViewController {
     }
     
     func makeDetailImage() {
-        var height = CGFloat()
         var yPoint = mainScrollView.frame.height + containerView.frame.height
         for i in 0..<foodDetail.detailSection.count {
             let imageView = UIImageView()
-//            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
-            let data = try? Data(contentsOf: URL(string: foodDetail.detailSection[i])!)
-            guard let imageData = data else { return }
             
-            let image = UIImage(data: imageData)
-            let imageHeight = (image?.size.height)! / ((image?.size.width)! / (self.view.frame.width-10))
-            imageView.image = image
-            imageView.frame = CGRect(x: 5, y: yPoint, width: self.view.frame.width-10, height: imageHeight)
-            imageView.contentMode = .scaleAspectFit
-            
-            containerScrollView.addSubview(imageView)
-            yPoint += imageView.frame.height
-            height = imageView.frame.maxY
+            imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!, completion: { (response) in
+                if let image = response.result.value {
+                    let imageHeight = (image.size.height) / ((image.size.width) / (self.view.frame.width-10))
+                    imageView.frame = CGRect(x: 5, y: yPoint, width: self.view.frame.width-10, height: imageHeight)
+                    imageView.contentMode = .scaleAspectFit
+                    
+                    self.containerScrollView.addSubview(imageView)
+                    
+                    yPoint += imageView.frame.height
+                    self.containerScrollView.contentSize.height = imageView.frame.maxY + self.orderButton.frame.height
+                }
+            })
         }
-        containerScrollView.contentSize.height = height + orderButton.frame.height
     }
     
     func makeOderButton() {

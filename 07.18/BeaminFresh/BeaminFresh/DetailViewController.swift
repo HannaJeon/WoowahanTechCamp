@@ -73,8 +73,8 @@ class DetailViewController: UIViewController {
         for i in 0..<foodDetail.detailSection.count {
             let imageView = UIImageView()
             imageView.af_setImage(withURL: URL(string: foodDetail.detailSection[i])!)
-            imageView.frame = CGRect(x: 0, y: yPoint, width: self.view.frame.width, height: containerScrollView.frame.height)
-            imageView.backgroundColor = UIColor.gray
+            imageView.frame = CGRect(x: 0, y: yPoint, width: self.view.frame.width, height: 500)
+            imageView.backgroundColor = UIColor.white
             imageView.contentMode = .scaleAspectFit
             containerScrollView.addSubview(imageView)
             yPoint += imageView.frame.height

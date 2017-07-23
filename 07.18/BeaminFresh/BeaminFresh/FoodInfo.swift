@@ -10,6 +10,21 @@ import Foundation
 
 enum Type {
     case main, course, side, soup
+    
+    func returnDescription() -> String {
+        switch self {
+        case .main:
+            return "메인임"
+        case .course:
+            return "코스임"
+        case .side:
+            return "사이드임"
+        case .soup:
+            return "수프임"
+        }
+    }
+    
+    
 }
 
 class FoodInfo {

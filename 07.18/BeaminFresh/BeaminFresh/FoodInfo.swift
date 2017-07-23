@@ -11,16 +11,16 @@ import Foundation
 enum Type {
     case main, course, side, soup
     
-    func returnDescription() -> String {
+    func returnDescription() -> (title: String, description: String) {
         switch self {
         case .main:
-            return "메인임"
+            return (title: "메인반찬", description: "담기만 하면 완성되는 메인반찬")
         case .course:
-            return "코스임"
+            return (title: "반찬세트", description: "고민없이 한 번에 반찬세트")
         case .side:
-            return "사이드임"
+            return (title: "밑반찬", description: "언제 먹어도 든든한 밑반찬")
         case .soup:
-            return "수프임"
+            return (title: "국・찌개", description: "김이 모락모락 국・찌개")
         }
     }
     

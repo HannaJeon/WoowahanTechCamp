@@ -74,26 +74,28 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
+        let foodInfo = foodsInfoList[indexPath.section][indexPath.row]
         
-        cell.titleLabel.text = foodsInfoList[indexPath.section][indexPath.row].title
-        cell.descriptionLabel.text = foodsInfoList[indexPath.section][indexPath.row].description
-        if let normalPrice = foodsInfoList[indexPath.section][indexPath.row].normalPrice {
+        cell.titleLabel.text = foodInfo.title
+        cell.descriptionLabel.text = foodInfo.description
+        
+        if let normalPrice = foodInfo.normalPrice {
             cell.normalPriceLabel.text = normalPrice
         } else {
             cell.emptyNormalPrice()
         }
-        if let salePrice = foodsInfoList[indexPath.section][indexPath.row].salePrice {
+        if let salePrice = foodInfo.salePrice {
             cell.salePriceLabel.text = "\(salePrice)"
         } else {
             cell.emptySalePrice()
         }
-        if let badges = foodsInfoList[indexPath.section][indexPath.row].badge {
+        if let badges = foodInfo.badge {
             for badge in badges {
                 cell.makeBadgeLabel(badge: badge)
             }
         }
         
-        if let url = URL(string: foodsInfoList[indexPath.section][indexPath.row].image) {
+        if let url = URL(string: foodInfo.image) {
             cell.foodImageView.af_setImage(withURL: url)
         }
         
@@ -101,7 +103,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 120
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -119,17 +121,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let view = UIView()
 //        view.backgroundColor = UIColor.white
         
-        let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 10, width: 50, height: 30))
-        titleLabel.text = String(describing: foodsInfoList[section].first!.type)
+        let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 10, width: 50, height: 20))
+        titleLabel.text = foodsInfoList[section].first?.type.returnDescription().title
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 15)
+        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 13)
         titleLabel.textColor = UIColor.lightGray
-        titleLabel.layer.borderWidth = 2
+        titleLabel.layer.borderWidth = 1
         titleLabel.layer.borderColor = UIColor.lightGray.cgColor
         view.addSubview(titleLabel)
         
-        let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.midX-75, y: 45, width: 150, height: 30))
-        descriptionLabel.text = foodsInfoList[section].first?.type.returnDescription()
+        let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.minX+5, y: 45, width: self.view.frame.width-10, height: 30))
+        descriptionLabel.text = foodsInfoList[section].first?.type.returnDescription().description
         descriptionLabel.textAlignment = .center
         view.addSubview(descriptionLabel)
         

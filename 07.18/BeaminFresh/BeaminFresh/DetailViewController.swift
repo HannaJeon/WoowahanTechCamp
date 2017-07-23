@@ -12,7 +12,6 @@ import AlamofireImage
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
-    
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,8 +25,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var userdeliveryFeeLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    var orderButton = UIButton()
     
     var detailHash = String()
+    var detailTitle = String()
     var foodDetail = FoodDetail()
     let networking = Networking()
 
@@ -35,6 +36,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         networking.getFoodDetail(hash: detailHash)
+        makeOderButton()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(finishedGetFoodDetail(_:)), name: NSNotification.Name("getFoodDetail"), object: networking)
     }
 
@@ -49,6 +52,7 @@ class DetailViewController: UIViewController {
         }
         setMainScrollView()
         makeDetailImage()
+        makeContainerView()
     }
     
     func setMainScrollView() {
@@ -77,19 +81,42 @@ class DetailViewController: UIViewController {
             guard let imageData = data else { return }
             
             let image = UIImage(data: imageData)
-            let imageHeight = (image?.size.height)! / ((image?.size.width)! / self.view.frame.width)
+            let imageHeight = (image?.size.height)! / ((image?.size.width)! / (self.view.frame.width-10))
             imageView.image = image
-            imageView.frame = CGRect(x: 0, y: yPoint, width: self.view.frame.width, height: imageHeight)
+            imageView.frame = CGRect(x: 5, y: yPoint, width: self.view.frame.width-10, height: imageHeight)
             imageView.contentMode = .scaleAspectFit
             
             containerScrollView.addSubview(imageView)
             yPoint += imageView.frame.height
             height = imageView.frame.maxY
         }
-        containerScrollView.contentSize.height = height
-//        button.setTitle("주문하기", for: .normal)
-//        button.backgroundColor = UIColor.red
-//        button.frame = CGRect(x: 0, y: self.view.frame.maxY-50, width: self.view.frame.width, height: 50)
+        containerScrollView.contentSize.height = height + orderButton.frame.height
+    }
+    
+    func makeOderButton() {
+        orderButton.frame = CGRect(x: 0, y: self.view.frame.maxY-50, width: self.view.frame.width, height: 50)
+        orderButton.setTitle("주문하기", for: .normal)
+        orderButton.setTitleColor(UIColor.white, for: .normal)
+        orderButton.backgroundColor = UIColor(red: 112/255, green: 198/255, blue: 188/255, alpha: 1)
+        self.view.addSubview(orderButton)
+    }
+    
+    func orderButtonAction() {
+        
+    }
+    
+    func makeContainerView() {
+        titleLabel.text = detailTitle
+        descriptionLabel.text = foodDetail.productDescription
+        if foodDetail.prices.count == 2 {
+            normalPriceLabel.text = foodDetail.prices.max()
+            salePriceLabel.text = foodDetail.prices.min()
+            
+        } else {
+            normalPriceLabel.isHidden = true
+            salePriceLabel.text = foodDetail.prices[0]
+        }
+        print(foodDetail.prices)
     }
 
 }

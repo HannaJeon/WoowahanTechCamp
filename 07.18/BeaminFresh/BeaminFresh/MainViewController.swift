@@ -56,6 +56,7 @@ class MainViewController: UIViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! DetailViewController
                 controller.detailHash = foodsInfoList[indexPath.section][indexPath.row].detailHash
+                controller.detailTitle = foodsInfoList[indexPath.section][indexPath.row].title
             }
         }
     }

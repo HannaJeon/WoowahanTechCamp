@@ -119,9 +119,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-//        view.backgroundColor = UIColor.white
         
-        let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 10, width: 50, height: 20))
+        let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 0, width: 50, height: 20))
         titleLabel.text = foodsInfoList[section].first?.type.returnDescription().title
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 13)
@@ -130,7 +129,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         titleLabel.layer.borderColor = UIColor.lightGray.cgColor
         view.addSubview(titleLabel)
         
-        let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.minX+5, y: 45, width: self.view.frame.width-10, height: 30))
+        let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.minX+5, y: 30, width: self.view.frame.width-10, height: 30))
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: CGFloat(20))
         descriptionLabel.text = foodsInfoList[section].first?.type.returnDescription().description
         descriptionLabel.textAlignment = .center
         view.addSubview(descriptionLabel)

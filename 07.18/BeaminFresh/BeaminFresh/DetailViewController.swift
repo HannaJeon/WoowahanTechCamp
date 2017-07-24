@@ -15,15 +15,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var normalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var pointLabel: UILabel!
-    @IBOutlet weak var userPointLabel: UILabel!
-    @IBOutlet weak var deliveryLabel: UILabel!
     @IBOutlet weak var deliveryInfoLabel: UILabel!
     @IBOutlet weak var deliveryFeeLabel: UILabel!
-    @IBOutlet weak var userdeliveryFeeLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     var orderButton = UIButton()
     
@@ -111,9 +107,9 @@ class DetailViewController: UIViewController {
         salePriceLabel.textColor = UIColor(red: 112/255, green: 198/255, blue: 188/255, alpha: 1)
         normalPriceLabel.textAlignment = .center
         descriptionLabel.textColor = textColor
-        userPointLabel.textColor = textColor
+        pointLabel.textColor = textColor
         deliveryInfoLabel.textColor = textColor
-        userdeliveryFeeLabel.textColor = textColor
+        deliveryFeeLabel.textColor = textColor
     }
     
     func makeContainerView() {
@@ -121,9 +117,9 @@ class DetailViewController: UIViewController {
         
         titleLabel.text = detailTitle
         descriptionLabel.text = foodDetail.productDescription
-        userPointLabel.text = foodDetail.point
+        pointLabel.text = foodDetail.point
         deliveryInfoLabel.text = foodDetail.deliveryInfo
-        userdeliveryFeeLabel.text = foodDetail.deliveryFee
+        deliveryFeeLabel.text = foodDetail.deliveryFee
         
         if foodDetail.prices.count == 2 {
             normalPriceLabel.text = foodDetail.prices.max()

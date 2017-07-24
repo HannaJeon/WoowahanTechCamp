@@ -44,6 +44,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFi-nc-Lht">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -51,6 +55,7 @@
                                             <constraint firstItem="TDu-kx-wZ2" firstAttribute="top" secondItem="vtq-HW-7IP" secondAttribute="top" id="Fcf-fa-oKu"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageView" destination="mFi-nc-Lht" id="56l-ZL-0m7"/>
                                             <outlet property="numberLabel" destination="TDu-kx-wZ2" id="JA9-Zb-HLy"/>
                                         </connections>
                                     </collectionViewCell>

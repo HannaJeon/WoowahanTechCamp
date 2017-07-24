@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		983B136A1F25CAC000164895 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B13691F25CAC000164895 /* Networking.swift */; };
 		98D7CF991F25C7F500D8872C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7CF981F25C7F500D8872C /* AppDelegate.swift */; };
 		98D7CF9B1F25C7F500D8872C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7CF9A1F25C7F500D8872C /* ViewController.swift */; };
 		98D7CF9E1F25C7F500D8872C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98D7CF9C1F25C7F500D8872C /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		983B13691F25CAC000164895 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		98D7CF951F25C7F500D8872C /* GoogleImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D7CF981F25C7F500D8872C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98D7CF9A1F25C7F500D8872C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				98D7CF981F25C7F500D8872C /* AppDelegate.swift */,
 				98D7CF9A1F25C7F500D8872C /* ViewController.swift */,
 				98D7CFAA1F25C88D00D8872C /* ImageCollectionViewCell.swift */,
+				983B13691F25CAC000164895 /* Networking.swift */,
 				98D7CF9C1F25C7F500D8872C /* Main.storyboard */,
 				98D7CF9F1F25C7F500D8872C /* Assets.xcassets */,
 				98D7CFA11F25C7F500D8872C /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 				98D7CFAB1F25C88D00D8872C /* ImageCollectionViewCell.swift in Sources */,
 				98D7CF9B1F25C7F500D8872C /* ViewController.swift in Sources */,
 				98D7CF991F25C7F500D8872C /* AppDelegate.swift in Sources */,
+				983B136A1F25CAC000164895 /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +309,7 @@
 				98D7CFA91F25C7F500D8872C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

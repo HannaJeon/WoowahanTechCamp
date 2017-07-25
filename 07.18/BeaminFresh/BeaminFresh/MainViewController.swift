@@ -12,7 +12,7 @@ import AlamofireImage
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let networking = Networking()
-    var foodsInfoList = [[FoodInfo]]()
+    var foodsInfoList = [Int:[FoodInfo]]()
     var category = ["main", "course", "side", "soup"]
     
     override func viewDidLoad() {
@@ -43,11 +43,13 @@ class MainViewController: UIViewController {
             self.view.layer.borderColor = UIColor.red.cgColor
         }
     }
-    
+
     func changedFoodInfo(_ notification: Notification) {
         if let userInfo = notification.userInfo as? [String:[FoodInfo]] {
-            foodsInfoList.append(userInfo["foodInfo"]!)
-            tableView.reloadData()
+            if let rawValue = userInfo["foodInfo"]?.first?.type.rawValue {
+                foodsInfoList[rawValue] = userInfo["foodInfo"]
+                tableView.reloadData()
+            }
         }
     }
     
@@ -55,8 +57,8 @@ class MainViewController: UIViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! DetailViewController
-                controller.detailHash = foodsInfoList[indexPath.section][indexPath.row].detailHash
-                controller.detailTitle = foodsInfoList[indexPath.section][indexPath.row].title
+                controller.detailHash = foodsInfoList[indexPath.section]![indexPath.row].detailHash
+                controller.detailTitle = foodsInfoList[indexPath.section]![indexPath.row].title
             }
         }
     }
@@ -65,38 +67,49 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return foodsInfoList.count
+        if !foodsInfoList.isEmpty {
+            return foodsInfoList.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodsInfoList[section].count
+        if let foodsInfo = foodsInfoList[section] {
+            return foodsInfo.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
-        let foodInfo = foodsInfoList[indexPath.section][indexPath.row]
         
-        cell.titleLabel.text = foodInfo.title
-        cell.descriptionLabel.text = foodInfo.description
-        
-        if let normalPrice = foodInfo.normalPrice {
-            cell.normalPriceLabel.text = normalPrice
-        } else {
-            cell.emptyNormalPrice()
-        }
-        if let salePrice = foodInfo.salePrice {
-            cell.salePriceLabel.text = "\(salePrice)"
-        } else {
-            cell.emptySalePrice()
-        }
-        if let badges = foodInfo.badge {
-            for badge in badges {
-                cell.makeBadgeLabel(badge: badge)
+        if let foodsInfoList = foodsInfoList[indexPath.section] {
+            let foodInfo = foodsInfoList[indexPath.row]
+            
+            cell.titleLabel.text = foodInfo.title
+            cell.descriptionLabel.text = foodInfo.description
+            
+            if let normalPrice = foodInfo.normalPrice {
+                cell.normalPriceLabel.text = normalPrice
+            } else {
+                cell.emptyNormalPrice()
             }
-        }
-        
-        if let url = URL(string: foodInfo.image) {
-            cell.foodImageView.af_setImage(withURL: url)
+            if let salePrice = foodInfo.salePrice {
+                cell.salePriceLabel.text = "\(salePrice)"
+            } else {
+                cell.emptySalePrice()
+            }
+            if let badges = foodInfo.badge {
+                for badge in badges {
+                    cell.makeBadgeLabel(badge: badge)
+                }
+            }
+            
+            if let url = URL(string: foodInfo.image) {
+                cell.foodImageView.af_setImage(withURL: url)
+            }
         }
         
         return cell
@@ -120,20 +133,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         
-        let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 0, width: 50, height: 20))
-        titleLabel.text = foodsInfoList[section].first?.type.returnDescription().title
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 13)
-        titleLabel.textColor = UIColor.lightGray
-        titleLabel.layer.borderWidth = 1
-        titleLabel.layer.borderColor = UIColor.lightGray.cgColor
-        view.addSubview(titleLabel)
-        
-        let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.minX+5, y: 30, width: self.view.frame.width-10, height: 30))
-        descriptionLabel.font = UIFont.boldSystemFont(ofSize: CGFloat(20))
-        descriptionLabel.text = foodsInfoList[section].first?.type.returnDescription().description
-        descriptionLabel.textAlignment = .center
-        view.addSubview(descriptionLabel)
+        if let foodsInfo = foodsInfoList[section] {
+            let titleLabel = UILabel(frame: CGRect(x: self.view.frame.midX-25, y: 0, width: 50, height: 20))
+            titleLabel.text = foodsInfo.first?.type.returnDescription().title
+            titleLabel.textAlignment = .center
+            titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 13)
+            titleLabel.textColor = UIColor.lightGray
+            titleLabel.layer.borderWidth = 1
+            titleLabel.layer.borderColor = UIColor.lightGray.cgColor
+            view.addSubview(titleLabel)
+            
+            let descriptionLabel = UILabel(frame: CGRect(x: self.view.frame.minX+5, y: 30, width: self.view.frame.width-10, height: 30))
+            descriptionLabel.font = UIFont.boldSystemFont(ofSize: CGFloat(20))
+            descriptionLabel.text = foodsInfo.first?.type.returnDescription().description
+            descriptionLabel.textAlignment = .center
+            view.addSubview(descriptionLabel)
+        }
         
         return view
     }

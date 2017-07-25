@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum Type {
-    case main, course, side, soup
+enum Type: Int {
+    case main = 0, course, side, soup
     
     func returnDescription() -> (title: String, description: String) {
         switch self {

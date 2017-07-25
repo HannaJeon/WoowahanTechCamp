@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     let networking = Networking()
-    var jsonArray = NSArray()
+    var jsonArray = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     
     func saveJsonData(_ notification: Notification) {
-        if let userInfo = notification.userInfo as? [String:NSArray] {
+        if let userInfo = notification.userInfo as? [String:[[String:Any]]] {
             jsonArray = userInfo["jsonData"]!
         }
         DispatchQueue.main.async {
@@ -42,8 +42,6 @@ class ViewController: UIViewController {
         }
     }
     
-    var size = CGSize(width: 128, height: 50)
-
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -56,7 +54,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         cell.numberLabel.text = String(indexPath.row+1)
 
-        self.networking.getImageData(url: (self.jsonArray[indexPath.row] as! [String:String])["image"]!, callback: { (imageData) in
+        self.networking.getImageData(url: self.jsonArray[indexPath.row]["image"]! as! String, callback: { (imageData) in
             DispatchQueue.main.async {
                 let image = UIImage(data: imageData)
                 cell.imageView.image =  image
@@ -68,12 +66,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return size
+        return CGSize(width: 128, height: 50)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        size = CGSize(width: 128*3, height: 50*3)
-//    }
     
 }
 

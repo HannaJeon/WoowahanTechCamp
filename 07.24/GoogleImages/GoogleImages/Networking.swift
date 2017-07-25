@@ -13,11 +13,8 @@ class Networking {
         URLSession(configuration: URLSessionConfiguration.default).dataTask(with: URL(string: url)!) { (data, response, error) in
             if let jsonData = data {
                 do {
-                    let contents = try JSONSerialization.jsonObject(with: jsonData, options: []) as! NSArray
-//                    for content in contents {
+                    let contents = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [[String:Any]]
                         NotificationCenter.default.post(name: NSNotification.Name("getJsonData"), object: self, userInfo: ["jsonData" : contents])
-//                        self.getImageData(url: (content as! [String:String])["image"]!)
-//                    }
                 } catch {
                     print("catch")
                 }

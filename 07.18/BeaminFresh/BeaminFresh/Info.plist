@@ -34,5 +34,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>URL</key>
+	<string>http://52.78.212.27:8080/woowa/</string>
 </dict>
 </plist>

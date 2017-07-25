@@ -8,34 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		B51604A21F1D99250091E1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A11F1D99250091E1D7 /* AppDelegate.swift */; };
-		B51604A41F1D99250091E1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A31F1D99250091E1D7 /* ViewController.swift */; };
+		B51604A41F1D99250091E1D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604A31F1D99250091E1D7 /* MainViewController.swift */; };
 		B51604A71F1D99250091E1D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51604A51F1D99250091E1D7 /* Main.storyboard */; };
 		B51604A91F1D99250091E1D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51604A81F1D99250091E1D7 /* Assets.xcassets */; };
 		B51604AC1F1D99250091E1D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51604AA1F1D99250091E1D7 /* LaunchScreen.storyboard */; };
-		B51604B41F1D99350091E1D7 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604B31F1D99350091E1D7 /* main.json */; };
 		B51604B61F1DA2400091E1D7 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B51F1DA2400091E1D7 /* FoodInfo.swift */; };
 		B51604B81F1DA78F0091E1D7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */; };
 		B51604BA1F1DC62F0091E1D7 /* SerializationJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */; };
-		B51604EE1F1EDDEE0091E1D7 /* course.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604EB1F1EDDEE0091E1D7 /* course.json */; };
-		B51604EF1F1EDDEE0091E1D7 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604EC1F1EDDEE0091E1D7 /* side.json */; };
-		B51604F01F1EDDEE0091E1D7 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = B51604ED1F1EDDEE0091E1D7 /* soup.json */; };
+		B51605001F1F19B40091E1D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FE1F1F19B40091E1D7 /* Networking.swift */; };
+		B51605011F1F19B40091E1D7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51604FF1F1F19B40091E1D7 /* Reachability.swift */; };
+		B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51605231F1F42E60091E1D7 /* DetailViewController.swift */; };
+		B51605261F1F71540091E1D7 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51605251F1F71540091E1D7 /* FoodDetail.swift */; };
+		C57D60F01595712BE7D7B463 /* Pods_BeaminFresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A646E8B7F2E4385E2FB289B /* Pods-BeaminFresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaminFresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaminFresh/Pods-BeaminFresh.release.xcconfig"; sourceTree = "<group>"; };
+		17156E3126E7402A92A9DFF4 /* Pods-BeaminFresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaminFresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaminFresh/Pods-BeaminFresh.debug.xcconfig"; sourceTree = "<group>"; };
 		B516049E1F1D99250091E1D7 /* BeaminFresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaminFresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51604A11F1D99250091E1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B51604A31F1D99250091E1D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B51604A31F1D99250091E1D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B51604A61F1D99250091E1D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B51604A81F1D99250091E1D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51604AB1F1D99250091E1D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B51604AD1F1D99250091E1D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B51604B31F1D99350091E1D7 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		B51604B51F1DA2400091E1D7 /* FoodInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
 		B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationJson.swift; sourceTree = "<group>"; };
-		B51604EB1F1EDDEE0091E1D7 /* course.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = course.json; sourceTree = "<group>"; };
-		B51604EC1F1EDDEE0091E1D7 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
-		B51604ED1F1EDDEE0091E1D7 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		B51604FE1F1F19B40091E1D7 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		B51604FF1F1F19B40091E1D7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B51605231F1F42E60091E1D7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B51605251F1F71540091E1D7 /* FoodDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
+		C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaminFresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57D60F01595712BE7D7B463 /* Pods_BeaminFresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30A2C443A819F748EB6ACDED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17156E3126E7402A92A9DFF4 /* Pods-BeaminFresh.debug.xcconfig */,
+				0A646E8B7F2E4385E2FB289B /* Pods-BeaminFresh.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B51604951F1D99250091E1D7 = {
 			isa = PBXGroup;
 			children = (
 				B51604A01F1D99250091E1D7 /* BeaminFresh */,
 				B516049F1F1D99250091E1D7 /* Products */,
+				30A2C443A819F748EB6ACDED /* Pods */,
+				FFA2946D1F1A25E42E39C433 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,20 +85,36 @@
 			isa = PBXGroup;
 			children = (
 				B51604A11F1D99250091E1D7 /* AppDelegate.swift */,
-				B51604A31F1D99250091E1D7 /* ViewController.swift */,
+				B51605021F1F19BC0091E1D7 /* Model */,
+				B51604FF1F1F19B40091E1D7 /* Reachability.swift */,
 				B51604B71F1DA78F0091E1D7 /* CustomTableViewCell.swift */,
-				B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */,
-				B51604B51F1DA2400091E1D7 /* FoodInfo.swift */,
-				B51604B31F1D99350091E1D7 /* main.json */,
-				B51604EB1F1EDDEE0091E1D7 /* course.json */,
-				B51604EC1F1EDDEE0091E1D7 /* side.json */,
-				B51604ED1F1EDDEE0091E1D7 /* soup.json */,
+				B51604A31F1D99250091E1D7 /* MainViewController.swift */,
+				B51605231F1F42E60091E1D7 /* DetailViewController.swift */,
 				B51604A51F1D99250091E1D7 /* Main.storyboard */,
 				B51604A81F1D99250091E1D7 /* Assets.xcassets */,
 				B51604AA1F1D99250091E1D7 /* LaunchScreen.storyboard */,
 				B51604AD1F1D99250091E1D7 /* Info.plist */,
 			);
 			path = BeaminFresh;
+			sourceTree = "<group>";
+		};
+		B51605021F1F19BC0091E1D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B51604FE1F1F19B40091E1D7 /* Networking.swift */,
+				B51604B91F1DC62F0091E1D7 /* SerializationJson.swift */,
+				B51604B51F1DA2400091E1D7 /* FoodInfo.swift */,
+				B51605251F1F71540091E1D7 /* FoodDetail.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FFA2946D1F1A25E42E39C433 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4244F01B0A69FC782E9E301 /* Pods_BeaminFresh.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +124,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B51604B01F1D99250091E1D7 /* Build configuration list for PBXNativeTarget "BeaminFresh" */;
 			buildPhases = (
+				E14EABF5B6F7F9145305EA59 /* [CP] Check Pods Manifest.lock */,
 				B516049A1F1D99250091E1D7 /* Sources */,
 				B516049B1F1D99250091E1D7 /* Frameworks */,
 				B516049C1F1D99250091E1D7 /* Resources */,
+				76988215FA6D6668A56BF348 /* [CP] Embed Pods Frameworks */,
+				3530328B784FB7F8DFD760EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,28 +179,76 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51604EE1F1EDDEE0091E1D7 /* course.json in Resources */,
 				B51604AC1F1D99250091E1D7 /* LaunchScreen.storyboard in Resources */,
 				B51604A91F1D99250091E1D7 /* Assets.xcassets in Resources */,
-				B51604B41F1D99350091E1D7 /* main.json in Resources */,
-				B51604EF1F1EDDEE0091E1D7 /* side.json in Resources */,
-				B51604F01F1EDDEE0091E1D7 /* soup.json in Resources */,
 				B51604A71F1D99250091E1D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3530328B784FB7F8DFD760EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaminFresh/Pods-BeaminFresh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76988215FA6D6668A56BF348 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaminFresh/Pods-BeaminFresh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E14EABF5B6F7F9145305EA59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B516049A1F1D99250091E1D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51605011F1F19B40091E1D7 /* Reachability.swift in Sources */,
 				B51604BA1F1DC62F0091E1D7 /* SerializationJson.swift in Sources */,
-				B51604A41F1D99250091E1D7 /* ViewController.swift in Sources */,
+				B51604A41F1D99250091E1D7 /* MainViewController.swift in Sources */,
 				B51604B61F1DA2400091E1D7 /* FoodInfo.swift in Sources */,
+				B51605001F1F19B40091E1D7 /* Networking.swift in Sources */,
 				B51604B81F1DA78F0091E1D7 /* CustomTableViewCell.swift in Sources */,
 				B51604A21F1D99250091E1D7 /* AppDelegate.swift in Sources */,
+				B51605241F1F42E60091E1D7 /* DetailViewController.swift in Sources */,
+				B51605261F1F71540091E1D7 /* FoodDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +369,7 @@
 		};
 		B51604B11F1D99250091E1D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17156E3126E7402A92A9DFF4 /* Pods-BeaminFresh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BeaminFresh/Info.plist;
@@ -298,6 +382,7 @@
 		};
 		B51604B21F1D99250091E1D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A646E8B7F2E4385E2FB289B /* Pods-BeaminFresh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BeaminFresh/Info.plist;

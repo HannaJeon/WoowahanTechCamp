@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deliveryInfoLabel: UILabel!
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var pageControll: UIPageControl!
     var orderButton = UIButton()
     
     var detailHash = String()
@@ -31,6 +32,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainScrollView.delegate = self
         networking.getFoodDetail(hash: detailHash)
         viewinit()
         makeOderButton()
@@ -65,8 +67,14 @@ class DetailViewController: UIViewController {
             width += imageView.bounds.width
             mainScrollView.addSubview(imageView)
         }
+        pageControll.numberOfPages = foodDetail.thumbImage.count
         mainScrollView.isPagingEnabled = true
         mainScrollView.contentSize.width = width
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = round(mainScrollView.contentOffset.x / view.frame.width)
+        pageControll.currentPage = Int(index)
     }
     
     func makeDetailImage() {

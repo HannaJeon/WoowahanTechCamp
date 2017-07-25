@@ -200,6 +200,10 @@
                                             <constraint firstAttribute="height" constant="222" id="k4D-sp-r5a"/>
                                         </constraints>
                                     </view>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="arP-gC-yPa">
+                                        <rect key="frame" x="168" y="234" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="hoh-eO-TJg" firstAttribute="leading" secondItem="QYy-MP-cP8" secondAttribute="leading" id="4U0-ae-aM4"/>
@@ -230,6 +234,7 @@
                         <outlet property="descriptionLabel" destination="3Wp-Oc-XrZ" id="aM1-pM-0PH"/>
                         <outlet property="mainScrollView" destination="hoh-eO-TJg" id="0EL-oM-lOV"/>
                         <outlet property="normalPriceLabel" destination="H7Q-Fa-dNo" id="4Vx-ZS-RRh"/>
+                        <outlet property="pageControll" destination="arP-gC-yPa" id="O3w-cE-233"/>
                         <outlet property="pointLabel" destination="6dn-W8-adt" id="yVF-fP-Fw7"/>
                         <outlet property="salePriceLabel" destination="EOE-jW-Gov" id="kUS-30-hgZ"/>
                         <outlet property="titleLabel" destination="EeS-4p-Ekh" id="IC4-c3-6cT"/>

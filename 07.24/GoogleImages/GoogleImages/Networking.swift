@@ -26,11 +26,11 @@ class Networking {
     }
     
     func getImageData(url: String, callback: @escaping (_ imageData: Data) -> Void) {
-        print(url)
-        let data = try? Data(contentsOf: URL(string: url)!)
-        if let imageData = data {
-            print(imageData)
-            callback(imageData)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: URL(string: url)!)
+            if let imageData = data {
+                callback(imageData)
+            }
         }
     }
     

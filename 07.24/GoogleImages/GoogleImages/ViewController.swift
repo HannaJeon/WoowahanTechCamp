@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     let networking = Networking()
-    var images = [Int:UIImage]()
     var jsonArray = NSArray()
     
     override func viewDidLoad() {
@@ -21,12 +20,11 @@ class ViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.prefetchDataSource = self
-        
+
         networking.getJsonData(url: "http://125.209.194.123/doodle.php")
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(saveImageData), name: NSNotification.Name("getImage"), object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(saveJsonData(_:)), name: NSNotification.Name("getJsonData"), object: nil)
     }
 
@@ -44,42 +42,26 @@ class ViewController: UIViewController {
         }
     }
     
-//    var indexPaths = [IndexPath]()
-//    func saveImageData(_ notification: Notification) {
-//        if let userInfo = notification.userInfo as? [String:Data] {
-//            DispatchQueue.main.async {
-//                let image = UIImage(data: userInfo["image"]!)
-//                self.images.append(image!)
-//            }
-//        }
-////        self.collectionView.reloadData()
-//    }
-    
     var size = CGSize(width: 128, height: 50)
 
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return jsonArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+        
         cell.numberLabel.text = String(indexPath.row+1)
-        DispatchQueue.global().async {
-            self.networking.getImageData(url: (self.jsonArray[indexPath.row] as! [String:String])["image"]!, callback: { (imageData) in
-                
-                DispatchQueue.main.async {
-                    let image = UIImage(data: imageData)
-                    self.images[indexPath.row] = image
-                    //                self.collectionView.reloadItems(at: [indexPath])
-                    cell.imageView.image = self.images[indexPath.row]
-                }
-                
-                
-            })            
-        }
+
+        self.networking.getImageData(url: (self.jsonArray[indexPath.row] as! [String:String])["image"]!, callback: { (imageData) in
+            DispatchQueue.main.async {
+                let image = UIImage(data: imageData)
+                cell.imageView.image =  image
+            }
+        })
       
         return cell
     }
@@ -89,24 +71,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return size
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        size = CGSize(width: 128*3, height: 50*3)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            self.networking.getImageData(url: (self.jsonArray[indexPath.row] as! [String:String])["image"]!, callback: { (imageData) in
-                
-                DispatchQueue.main.async {
-                    let image = UIImage(data: imageData)
-                    self.images[indexPath.row] = image
-                    self.collectionView.reloadItems(at: [indexPath])
-                }
-                
-                
-            })
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        size = CGSize(width: 128*3, height: 50*3)
+//    }
     
 }
 

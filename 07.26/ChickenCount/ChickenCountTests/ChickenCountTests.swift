@@ -21,13 +21,6 @@ class ChickenCountTests: XCTestCase {
         super.tearDown()
     }
     
-    func testUser() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let user = User()
-        
-    }
-    
     func testNetworking() {
         let networking = Networking()
         networking.postConfirm(message: ["username" : "01029000019", "text" : "012345"])
@@ -39,13 +32,11 @@ class ChickenCountTests: XCTestCase {
     
     func testKeyChain() {
         let keyChain = KeyChain()
-        User.sharedInstance.set(id: "testID")
-        User.sharedInstance.set(password: "testPASSWORD")
+        User.sharedInstance.set(id: "testID", password: "testPASSWORD")
         User.sharedInstance.set(chickenDate: Date())
         User.sharedInstance.set(phoneNumber: "testPhoneNumber")
         keyChain.saveKeyChain(userInfo: User.sharedInstance)
         keyChain.loadKeyChain()
-        
     }
     
     func testPerformanceExample() {

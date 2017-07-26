@@ -39,11 +39,8 @@ class User: NSObject, NSCoding {
         aCoder.encode(phoneNumber, forKey: "phoneNumber")
     }
     
-    func set(id: String) {
+    func set(id: String, password: String) {
         self.id = id
-    }
-    
-    func set(password: String) {
         self.password = password
     }
     

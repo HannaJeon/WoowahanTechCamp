@@ -12,7 +12,7 @@
         <!--Confirm View Controller-->
         <scene sceneID="GpR-ra-ejv">
             <objects>
-                <viewController id="cbA-49-Ndf" customClass="ConfirmViewController" customModule="ChickenCount" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmViewController" id="cbA-49-Ndf" customClass="ConfirmViewController" customModule="ChickenCount" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RMZ-Yw-N8c"/>
                         <viewControllerLayoutGuide type="bottom" id="UG1-Rt-LPv"/>
@@ -32,6 +32,7 @@
                                 <rect key="frame" x="37" y="426" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-fY-R5h">
@@ -62,6 +63,7 @@
                                 <rect key="frame" x="37" y="127" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-Fh-OWo">

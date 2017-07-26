@@ -15,3 +15,10 @@ extension UIAlertController {
         target.present(alertController, animated: true, completion: nil)
     }
 }
+
+extension UIStoryboard {
+    static let joinStoryBoard = UIStoryboard(name: "JoinView", bundle: nil)
+    static let confirmStoryBoard = UIStoryboard(name: "ConfirmView", bundle: nil)
+    static let datePickerStoryBoard = UIStoryboard(name: "DatePickerView", bundle: nil)
+    static let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+}

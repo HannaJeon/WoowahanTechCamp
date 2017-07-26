@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9824B1B01F282E3200B692AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1AF1F282E3200B692AC /* AppDelegate.swift */; };
-		9824B1B21F282E3200B692AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1B11F282E3200B692AC /* ViewController.swift */; };
+		9824B1B21F282E3200B692AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1B11F282E3200B692AC /* MainViewController.swift */; };
 		9824B1B51F282E3200B692AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1B31F282E3200B692AC /* Main.storyboard */; };
 		9824B1B71F282E3200B692AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1B61F282E3200B692AC /* Assets.xcassets */; };
 		9824B1BA1F282E3300B692AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1B81F282E3200B692AC /* LaunchScreen.storyboard */; };
@@ -18,6 +18,12 @@
 		9824B1E11F28540D00B692AC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1E01F28540D00B692AC /* Networking.swift */; };
 		9824B1E31F2869DD00B692AC /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1E21F2869DD00B692AC /* KeyChain.swift */; };
 		9824B1E61F28721C00B692AC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1E51F28721C00B692AC /* Extension.swift */; };
+		9824B1EC1F2873CE00B692AC /* JoinStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1EB1F2873CE00B692AC /* JoinStoryboard.storyboard */; };
+		9824B1EE1F2873DF00B692AC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1ED1F2873DF00B692AC /* JoinViewController.swift */; };
+		9824B1F01F2873F900B692AC /* ConfirmStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1EF1F2873F900B692AC /* ConfirmStoryboard.storyboard */; };
+		9824B1F21F28740100B692AC /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1F11F28740100B692AC /* ConfirmViewController.swift */; };
+		9824B1F41F28741600B692AC /* DatePickerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9824B1F31F28741600B692AC /* DatePickerStoryboard.storyboard */; };
+		9824B1F61F28742000B692AC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1F51F28742000B692AC /* DatePickerViewController.swift */; };
 		BD72A9DD25CBFD205654D2E9 /* Pods_ChickenCountTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF3C875F40E58A9A4BB776 /* Pods_ChickenCountTests.framework */; };
 		D262E828D8DF79E6271141F7 /* Pods_ChickenCount.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C66EF48FB21DC8CF9B60A12 /* Pods_ChickenCount.framework */; };
 		EA4168884ECD0427F41E57FB /* Pods_ChickenCountUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A63E7BB5D7CB64A92FCD53 /* Pods_ChickenCountUITests.framework */; };
@@ -47,7 +53,7 @@
 		93A63E7BB5D7CB64A92FCD53 /* Pods_ChickenCountUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChickenCountUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9824B1AC1F282E3200B692AC /* ChickenCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9824B1AF1F282E3200B692AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9824B1B11F282E3200B692AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9824B1B11F282E3200B692AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9824B1B41F282E3200B692AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9824B1B61F282E3200B692AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9824B1B91F282E3300B692AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +68,12 @@
 		9824B1E01F28540D00B692AC /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		9824B1E21F2869DD00B692AC /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		9824B1E51F28721C00B692AC /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9824B1EB1F2873CE00B692AC /* JoinStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JoinStoryboard.storyboard; sourceTree = "<group>"; };
+		9824B1ED1F2873DF00B692AC /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		9824B1EF1F2873F900B692AC /* ConfirmStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfirmStoryboard.storyboard; sourceTree = "<group>"; };
+		9824B1F11F28740100B692AC /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		9824B1F31F28741600B692AC /* DatePickerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePickerStoryboard.storyboard; sourceTree = "<group>"; };
+		9824B1F51F28742000B692AC /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		9C66EF48FB21DC8CF9B60A12 /* Pods_ChickenCount.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChickenCount.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A545A162D7500EADEB7102C3 /* Pods-ChickenCountTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickenCountTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChickenCountTests/Pods-ChickenCountTests.release.xcconfig"; sourceTree = "<group>"; };
 		A6C989A1FE2CAE10A301752C /* Pods-ChickenCount.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickenCount.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChickenCount/Pods-ChickenCount.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,11 +144,13 @@
 		9824B1AE1F282E3200B692AC /* ChickenCount */ = {
 			isa = PBXGroup;
 			children = (
+				9824B1E71F28737300B692AC /* JoinView */,
+				9824B1E81F28738000B692AC /* ConfirmView */,
+				9824B1E91F28739300B692AC /* DatePickerView */,
+				9824B1EA1F28739A00B692AC /* MainView */,
 				9824B1E41F28720800B692AC /* Extension */,
 				9824B1DF1F28527A00B692AC /* Model */,
 				9824B1AF1F282E3200B692AC /* AppDelegate.swift */,
-				9824B1B11F282E3200B692AC /* ViewController.swift */,
-				9824B1B31F282E3200B692AC /* Main.storyboard */,
 				9824B1B61F282E3200B692AC /* Assets.xcassets */,
 				9824B1B81F282E3200B692AC /* LaunchScreen.storyboard */,
 				9824B1BB1F282E3300B692AC /* Info.plist */,
@@ -178,6 +192,42 @@
 				9824B1E51F28721C00B692AC /* Extension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		9824B1E71F28737300B692AC /* JoinView */ = {
+			isa = PBXGroup;
+			children = (
+				9824B1EB1F2873CE00B692AC /* JoinStoryboard.storyboard */,
+				9824B1ED1F2873DF00B692AC /* JoinViewController.swift */,
+			);
+			name = JoinView;
+			sourceTree = "<group>";
+		};
+		9824B1E81F28738000B692AC /* ConfirmView */ = {
+			isa = PBXGroup;
+			children = (
+				9824B1EF1F2873F900B692AC /* ConfirmStoryboard.storyboard */,
+				9824B1F11F28740100B692AC /* ConfirmViewController.swift */,
+			);
+			name = ConfirmView;
+			sourceTree = "<group>";
+		};
+		9824B1E91F28739300B692AC /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				9824B1F31F28741600B692AC /* DatePickerStoryboard.storyboard */,
+				9824B1F51F28742000B692AC /* DatePickerViewController.swift */,
+			);
+			name = DatePickerView;
+			sourceTree = "<group>";
+		};
+		9824B1EA1F28739A00B692AC /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9824B1B11F282E3200B692AC /* MainViewController.swift */,
+				9824B1B31F282E3200B692AC /* Main.storyboard */,
+			);
+			name = MainView;
 			sourceTree = "<group>";
 		};
 		C8CD4E26D21B2965570F73F0 /* Pods */ = {
@@ -309,9 +359,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9824B1F01F2873F900B692AC /* ConfirmStoryboard.storyboard in Resources */,
 				9824B1BA1F282E3300B692AC /* LaunchScreen.storyboard in Resources */,
+				9824B1EC1F2873CE00B692AC /* JoinStoryboard.storyboard in Resources */,
 				9824B1B71F282E3200B692AC /* Assets.xcassets in Resources */,
 				9824B1B51F282E3200B692AC /* Main.storyboard in Resources */,
+				9824B1F41F28741600B692AC /* DatePickerStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,12 +527,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9824B1B21F282E3200B692AC /* ViewController.swift in Sources */,
+				9824B1B21F282E3200B692AC /* MainViewController.swift in Sources */,
 				9824B1B01F282E3200B692AC /* AppDelegate.swift in Sources */,
+				9824B1F61F28742000B692AC /* DatePickerViewController.swift in Sources */,
 				9824B1E31F2869DD00B692AC /* KeyChain.swift in Sources */,
+				9824B1F21F28740100B692AC /* ConfirmViewController.swift in Sources */,
 				9824B1E61F28721C00B692AC /* Extension.swift in Sources */,
 				9824B1DE1F28527200B692AC /* User.swift in Sources */,
 				9824B1E11F28540D00B692AC /* Networking.swift in Sources */,
+				9824B1EE1F2873DF00B692AC /* JoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

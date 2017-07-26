@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,65 +22,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="587-9e-WJk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="587-9e-WJk">
                                 <rect key="frame" x="26" y="157" width="268" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noj-Lj-2ew">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noj-Lj-2ew">
                                 <rect key="frame" x="26" y="268" width="268" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="4자리 이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOf-wn-y2a">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="4자리 이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOf-wn-y2a">
                                 <rect key="frame" x="26" y="186" width="268" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리 이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zx1-vF-kco">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리 이상" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zx1-vF-kco">
                                 <rect key="frame" x="26" y="297" width="268" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jPv-AX-oDw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jPv-AX-oDw">
                                 <rect key="frame" x="26" y="364" width="268" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGX-ME-79v">
-                                <rect key="frame" x="26" y="475" width="268" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGX-ME-79v">
+                                <rect key="frame" x="26" y="480" width="268" height="30"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Confirm">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQx-bx-vFN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQx-bx-vFN">
                                 <rect key="frame" x="26" y="335" width="268" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="치킨 멤버 가입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr7-qt-kwc">
-                                <rect key="frame" x="16" y="69" width="288" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="치킨 멤버 가입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr7-qt-kwc">
+                                <rect key="frame" x="89.5" y="75" width="141.5" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="dQx-bx-vFN" secondAttribute="trailing" id="1CQ-hi-C7I"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="centerX" secondItem="vr7-qt-kwc" secondAttribute="centerX" id="2GA-Fg-cd2"/>
+                            <constraint firstItem="zx1-vF-kco" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="28" id="7H4-rw-MRn"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="centerX" secondItem="FEb-Vx-Rxg" secondAttribute="centerX" id="8PV-sU-xuF"/>
+                            <constraint firstItem="jPv-AX-oDw" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="95" id="940-Kq-WSS"/>
+                            <constraint firstItem="587-9e-WJk" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="-116.5" id="Byk-wO-e83"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="jPv-AX-oDw" secondAttribute="trailing" id="CEj-q4-4II"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="zx1-vF-kco" secondAttribute="leading" id="Dxt-Ep-oc3"/>
+                            <constraint firstItem="dQx-bx-vFN" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="61.5" id="I31-e1-8oS"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="jPv-AX-oDw" secondAttribute="leading" id="NqS-dL-u8v"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="FEb-Vx-Rxg" secondAttribute="leadingMargin" constant="10" id="UYb-EW-qXy"/>
+                            <constraint firstItem="OOf-wn-y2a" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="-83" id="YCF-YF-ajI"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="YGX-ME-79v" secondAttribute="trailing" id="aFj-gN-ubx"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="587-9e-WJk" secondAttribute="leading" id="cCi-B8-3p4"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="dQx-bx-vFN" secondAttribute="leading" id="d6y-OM-mrY"/>
+                            <constraint firstItem="vr7-qt-kwc" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="-194.5" id="f73-jh-Cbe"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="zx1-vF-kco" secondAttribute="trailing" id="fQy-Cg-7bX"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="YGX-ME-79v" secondAttribute="leading" id="o5u-En-BgK"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="-5.5" id="sS4-4H-rPF"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="587-9e-WJk" secondAttribute="trailing" id="uKc-4s-UrG"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="trailing" secondItem="OOf-wn-y2a" secondAttribute="trailing" id="x46-bu-dMJ"/>
+                            <constraint firstItem="YGX-ME-79v" firstAttribute="centerY" secondItem="FEb-Vx-Rxg" secondAttribute="centerY" constant="210.5" id="z17-Pj-agY"/>
+                            <constraint firstItem="noj-Lj-2ew" firstAttribute="leading" secondItem="OOf-wn-y2a" secondAttribute="leading" id="z8G-XZ-GmA"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="idTextField" destination="OOf-wn-y2a" id="yyl-8F-35z"/>

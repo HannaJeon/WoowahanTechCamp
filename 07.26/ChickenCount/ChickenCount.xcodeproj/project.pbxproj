@@ -224,8 +224,8 @@
 		9824B1EA1F28739A00B692AC /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				9824B1B11F282E3200B692AC /* MainViewController.swift */,
 				9824B1B31F282E3200B692AC /* Main.storyboard */,
+				9824B1B11F282E3200B692AC /* MainViewController.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";

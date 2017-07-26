@@ -16,8 +16,8 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var warnningMessageLabel: UILabel!
     
-    var randomNumber: String!
-    var phoneNumber: String!
+    private var randomNumber: String!
+    private var phoneNumber: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

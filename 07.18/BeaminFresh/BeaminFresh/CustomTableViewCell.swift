@@ -14,8 +14,23 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     var badgeLabels = [UILabel]()
-    var normalPriceLabel = UILabel()
-    var salePriceLabel = UILabel()
+
+    let normalPriceLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 118, y: 59, width: 75, height: 21)
+        label.font = UIFont(name: label.font.fontName, size: 13)
+        label.isHidden = false
+        return label
+    }()
+    let salePriceLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 170, y: 59, width: 200, height: 21)
+        label.textColor = UIColor(red: 95/255, green: 192/255, blue: 189/255, alpha: 1)
+        label.textAlignment = .left
+        label.font = UIFont.boldSystemFont(ofSize: CGFloat(17))
+        label.isHidden = false
+        return label
+    }()
     
     var labelXPoint = 118
     
@@ -27,7 +42,6 @@ class CustomTableViewCell: UITableViewCell {
         
         descriptionLabel.font = UIFont(name: descriptionLabel.font.fontName, size: 13)
         descriptionLabel.textColor = UIColor(red: 154/255, green: 154/255, blue: 154/255, alpha: 1)
-        priceLabelinit()
 
         self.contentView.addSubview(salePriceLabel)
         self.contentView.addSubview(normalPriceLabel)
@@ -50,22 +64,14 @@ class CustomTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        priceLabelinit()
+        salePriceLabel.isHidden = false
+        normalPriceLabel.isHidden = false
+        salePriceLabel.frame = CGRect(x: 170, y: 59, width: 200, height: 21)
+        normalPriceLabel.frame = CGRect(x: 118, y: 59, width: 75, height: 21)
         for badgeLabel in badgeLabels {
             badgeLabel.removeFromSuperview()
         }
         labelXPoint = 118
-    }
-    
-    func priceLabelinit() {
-        salePriceLabel.frame = CGRect(x: 170, y: 59, width: 200, height: 21)
-        salePriceLabel.textColor = UIColor(red: 95/255, green: 192/255, blue: 189/255, alpha: 1)
-        salePriceLabel.textAlignment = .left
-        salePriceLabel.font = UIFont.boldSystemFont(ofSize: CGFloat(17))
-        normalPriceLabel.font = UIFont(name: normalPriceLabel.font.fontName, size: 13)
-        normalPriceLabel.frame = CGRect(x: 118, y: 59, width: 75, height: 21)
-        salePriceLabel.isHidden = false
-        normalPriceLabel.isHidden = false
     }
 
     func emptySalePrice() {

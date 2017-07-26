@@ -48,11 +48,13 @@ class MainViewController: UIViewController {
         if let userInfo = notification.userInfo as? [String:[FoodInfo]] {
             if let rawValue = userInfo["foodInfo"]?.first?.type.rawValue {
                 foodsInfoList[rawValue] = userInfo["foodInfo"]
-                tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cbA-49-Ndf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -87,9 +87,9 @@
                     <connections>
                         <outlet property="confirmButton" destination="BTs-fY-R5h" id="wyx-pX-3GC"/>
                         <outlet property="confirmNumberTextField" destination="EaE-df-IPa" id="aSf-V3-yv9"/>
-                        <outlet property="overtimeMessageLabel" destination="xfs-mX-Oto" id="blR-Zu-Rgd"/>
                         <outlet property="phoneNumberTextField" destination="aim-kk-jfM" id="9Wt-LX-qLq"/>
                         <outlet property="sendButton" destination="dSz-Fh-OWo" id="vEh-aE-n9q"/>
+                        <outlet property="warnningMessageLabel" destination="xfs-mX-Oto" id="BQ3-03-fz5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIf-mX-BVg" userLabel="First Responder" sceneMemberID="firstResponder"/>

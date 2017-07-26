@@ -66,7 +66,7 @@ class JoinViewController: UIViewController {
                 keyChain.saveKeyChain(userInfo: User.sharedInstance)
                 
                 let confirmViewController = UIStoryboard.confirmStoryBoard.instantiateViewController(withIdentifier: "ConfirmViewController") as! ConfirmViewController
-                self.present(confirmViewController, animated: true, completion: nil)
+                self.present(confirmViewController, animated: false, completion: nil)
             }
         }
     }

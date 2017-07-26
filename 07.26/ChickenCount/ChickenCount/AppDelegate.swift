@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let keyChain = KeyChain()
         keyChain.loadKeyChain()
         
+        if User.sharedInstance.chickenDate != nil {
+            self.window?.rootViewController = UIStoryboard.mainStoryBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        } else {
+            if User.sharedInstance.id == nil {
+                self.window?.rootViewController = UIStoryboard.joinStoryBoard.instantiateViewController(withIdentifier: "JoinViewController") as! JoinViewController
+            } else if User.sharedInstance.phoneNumber == nil {
+                self.window?.rootViewController = UIStoryboard.confirmStoryBoard.instantiateViewController(withIdentifier: "ConfirmViewController") as! ConfirmViewController
+            } else {
+                self.window?.rootViewController = UIStoryboard.datePickerStoryBoard.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
+            }
+        }
+        
         return true
     }
 

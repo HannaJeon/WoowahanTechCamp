@@ -22,8 +22,8 @@ class Networking {
             }).resume()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5000)) {
-            NotificationCenter.default.post(name: NSNotification.Name("testPostConfirm"), object: self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
+            NotificationCenter.default.post(name: NSNotification.Name("startCountTime"), object: self)
         }
     }
     

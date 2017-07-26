@@ -21,7 +21,7 @@ class Networking {
 
     func getJsonData(filePath: [String]) {
         for filepath in filePath {
-            Alamofire.request(getURL()+filepath).responseJSON(completionHandler: { (response) in
+            Alamofire.request(getURL()+filepath).responseJSON { (response) in
                 var foodList = [FoodInfo]()
                 
                 if let contents = response.result.value as? [[String:Any]] {
@@ -33,7 +33,7 @@ class Networking {
                     })
                 }
                 NotificationCenter.default.post(name: NSNotification.Name("changedFoodInfo"), object: self, userInfo: ["foodInfo" : foodList])
-            })
+            }
         }
     }
     

@@ -10,6 +10,12 @@ import UIKit
 
 class ConfirmViewController: UIViewController {
 
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var confirmNumberTextField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var overtimeMessageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

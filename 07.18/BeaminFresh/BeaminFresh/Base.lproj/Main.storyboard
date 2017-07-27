@@ -222,9 +222,8 @@
                                             <constraint firstItem="e5a-zP-uV5" firstAttribute="centerX" secondItem="9Mc-No-1aF" secondAttribute="centerX" id="xh8-fB-h6h"/>
                                         </constraints>
                                     </view>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="arP-gC-yPa">
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="arP-gC-yPa">
                                         <rect key="frame" x="168" y="234" width="39" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </pageControl>
                                 </subviews>
                                 <constraints>
@@ -232,7 +231,9 @@
                                     <constraint firstAttribute="bottom" secondItem="hoh-eO-TJg" secondAttribute="bottom" constant="389" id="CTc-7s-gbY"/>
                                     <constraint firstAttribute="trailing" secondItem="hoh-eO-TJg" secondAttribute="trailing" id="CwU-pC-alw"/>
                                     <constraint firstItem="hoh-eO-TJg" firstAttribute="leading" secondItem="UL0-2i-qTT" secondAttribute="leading" id="DK9-ta-b3i"/>
+                                    <constraint firstItem="arP-gC-yPa" firstAttribute="centerX" secondItem="UL0-2i-qTT" secondAttribute="centerX" id="GQ7-Bu-QYo"/>
                                     <constraint firstItem="hoh-eO-TJg" firstAttribute="top" secondItem="UL0-2i-qTT" secondAttribute="top" id="NXU-or-TS6"/>
+                                    <constraint firstItem="QYy-MP-cP8" firstAttribute="top" secondItem="arP-gC-yPa" secondAttribute="bottom" constant="8" symbolic="YES" id="SL7-u7-3jN"/>
                                     <constraint firstItem="hoh-eO-TJg" firstAttribute="centerX" secondItem="UL0-2i-qTT" secondAttribute="centerX" id="ZYm-cX-ixb"/>
                                     <constraint firstItem="QYy-MP-cP8" firstAttribute="top" secondItem="UL0-2i-qTT" secondAttribute="top" constant="279" id="gR5-pJ-dRw"/>
                                     <constraint firstItem="hoh-eO-TJg" firstAttribute="trailing" secondItem="QYy-MP-cP8" secondAttribute="trailing" id="tui-vU-zKD"/>

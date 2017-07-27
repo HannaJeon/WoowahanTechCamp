@@ -12,7 +12,6 @@ import UIKit
 
 class DatePickerViewControllerTest: XCTestCase {
     
-    let datePickerViewController = DatePickerViewController()
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,9 +23,7 @@ class DatePickerViewControllerTest: XCTestCase {
     }
     
     func testConfirm() {
-        XCTAssertFalse(datePickerViewController.confirm(selectedDate: Date()), "에러 : 오늘 날짜 허용됨")
-        XCTAssertFalse(datePickerViewController.confirm(selectedDate: Date(timeIntervalSince1970: 0)), "에러 : 과거날짜임")
-        XCTAssertTrue(datePickerViewController.confirm(selectedDate: Date(timeInterval: 86400000, since: Date())), "미래날짜임")
+        let datePickerViewController = DatePickerViewController()
         
     }
     

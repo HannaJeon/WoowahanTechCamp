@@ -24,13 +24,9 @@ class DatePickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func confirm(selectedDate: Date) -> Bool {
-        return selectedDate > Date() ? true : false
-    }
-    
     func doneButtonAction() {
         let selectedDate = datePicker.date
-        if !confirm(selectedDate: datePicker.date) {
+        if selectedDate < Date() {
             UIAlertController().oneButtonAlert(target: self, title: "경고!!!!!", message: "과거 날짜는 선택불가능합니다.")
         } else {
             User.sharedInstance.set(chickenDate: selectedDate)

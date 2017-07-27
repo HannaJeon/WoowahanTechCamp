@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lEo-pJ-Rya">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Date Picker View Controller-->
+        <scene sceneID="PQG-e8-7V6">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" id="lEo-pJ-Rya" customClass="DatePickerViewController" customModule="ChickenCount" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Lc-Bv-00H"/>
+                        <viewControllerLayoutGuide type="bottom" id="WfS-C1-Q9v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NG1-J6-2xQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="치킨 먹을 날짜를 선택해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyU-We-OMO">
+                                <rect key="frame" x="55" y="79" width="210" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NzA-No-6E4">
+                                <rect key="frame" x="0.0" y="142" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="522745984.34925997">
+                                    <!--2017-07-26 07:13:04 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnH-JM-bov">
+                                <rect key="frame" x="16" y="421" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VXW-cG-Sd0"/>
+                                </constraints>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WfS-C1-Q9v" firstAttribute="top" secondItem="cnH-JM-bov" secondAttribute="bottom" constant="117" id="3wQ-Oo-dpt"/>
+                            <constraint firstItem="cnH-JM-bov" firstAttribute="trailing" secondItem="NG1-J6-2xQ" secondAttribute="trailingMargin" id="AvM-gf-j3W"/>
+                            <constraint firstItem="NzA-No-6E4" firstAttribute="centerY" secondItem="NG1-J6-2xQ" secondAttribute="centerY" constant="-34" id="MK6-kG-gMz"/>
+                            <constraint firstItem="hyU-We-OMO" firstAttribute="top" secondItem="0Lc-Bv-00H" secondAttribute="bottom" constant="59" id="Wh1-Au-wFP"/>
+                            <constraint firstItem="cnH-JM-bov" firstAttribute="centerX" secondItem="NzA-No-6E4" secondAttribute="centerX" id="cKK-7k-nKO"/>
+                            <constraint firstItem="hyU-We-OMO" firstAttribute="centerX" secondItem="NG1-J6-2xQ" secondAttribute="centerX" id="vsY-Ej-2Po"/>
+                            <constraint firstItem="cnH-JM-bov" firstAttribute="leading" secondItem="NG1-J6-2xQ" secondAttribute="leadingMargin" id="ynv-BA-qA7"/>
+                            <constraint firstItem="NzA-No-6E4" firstAttribute="centerX" secondItem="NG1-J6-2xQ" secondAttribute="centerX" id="yoL-ma-Ucb"/>
+                            <constraint firstItem="cnH-JM-bov" firstAttribute="centerY" secondItem="NG1-J6-2xQ" secondAttribute="centerY" constant="152" id="zIX-x9-QX1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="NzA-No-6E4" id="y4J-Pi-xU9"/>
+                        <outlet property="doneButton" destination="cnH-JM-bov" id="LRi-Iu-6Ir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRB-58-f3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1524.375" y="-387.67605633802816"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cbA-49-Ndf">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Confirm View Controller-->
+        <scene sceneID="GpR-ra-ejv">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmViewController" id="cbA-49-Ndf" customClass="ConfirmViewController" customModule="ChickenCount" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RMZ-Yw-N8c"/>
+                        <viewControllerLayoutGuide type="bottom" id="UG1-Rt-LPv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TjG-b0-dRh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간이 초과되었습니다.  인증번호를 재전송 해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfs-mX-Oto">
+                                <rect key="frame" x="12" y="319" width="300" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EaE-df-IPa">
+                                <rect key="frame" x="12" y="351" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-fY-R5h">
+                                <rect key="frame" x="12" y="413" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="인증번호 확인">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOZ-a6-lwV">
+                                <rect key="frame" x="12" y="460" width="300" height="27"/>
+                                <string key="text">인증번호를 30초 이내에 입력해 주세요.
+인증번호가 도착하지 않을시 인증번호 전송을 다시 시도해 주세요.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본인확인에 필요한 전화번호를 입력해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1o-OH-r07">
+                                <rect key="frame" x="12" y="66" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰 번호" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aim-kk-jfM">
+                                <rect key="frame" x="9" y="109" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-Fh-OWo">
+                                <rect key="frame" x="12" y="171" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="인증번호 전송">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입력하신 전화번호로 6자리의 인증번호를 보내드립니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4K-8C-eYW">
+                                <rect key="frame" x="9" y="211" width="300" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="leading" secondItem="TjG-b0-dRh" secondAttribute="leadingMargin" constant="-4" id="16u-lD-4gE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BTs-fY-R5h" secondAttribute="trailing" constant="-8" id="5Jc-wY-Yhq"/>
+                            <constraint firstItem="v4K-8C-eYW" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="-65.5" id="88h-sS-T8r"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="trailing" secondItem="EaE-df-IPa" secondAttribute="trailing" id="BgG-d5-R9i"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="-98" id="G2Z-yl-zMn"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="leading" secondItem="TjG-b0-dRh" secondAttribute="leadingMargin" constant="-4" id="Gda-ez-qIa"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="trailing" secondItem="xfs-mX-Oto" secondAttribute="trailing" id="Jbt-uZ-lCJ"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="leading" secondItem="aim-kk-jfM" secondAttribute="leading" constant="3" id="M32-kg-Wwq"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="leading" secondItem="x1o-OH-r07" secondAttribute="leading" id="NWg-FD-Q36"/>
+                            <constraint firstItem="xfs-mX-Oto" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="43.5" id="Oap-Lg-K9V"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="leading" secondItem="v4K-8C-eYW" secondAttribute="leading" constant="3" id="Ozk-iP-GVh"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="trailing" secondItem="v4K-8C-eYW" secondAttribute="trailing" constant="3" id="SMa-eW-gTH"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="leading" secondItem="OOZ-a6-lwV" secondAttribute="leading" id="UNc-NQ-Kh3"/>
+                            <constraint firstItem="aim-kk-jfM" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="-160" id="c9F-8Q-Hmf"/>
+                            <constraint firstItem="dSz-Fh-OWo" firstAttribute="trailing" secondItem="aim-kk-jfM" secondAttribute="trailing" constant="3" id="cyb-If-YIO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dSz-Fh-OWo" secondAttribute="trailing" constant="-8" id="fGf-am-epz"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="trailing" secondItem="x1o-OH-r07" secondAttribute="trailing" id="goZ-PB-C89"/>
+                            <constraint firstItem="x1o-OH-r07" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="-207.5" id="opn-v5-eBZ"/>
+                            <constraint firstItem="EaE-df-IPa" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="82" id="pcE-WE-jkc"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="leading" secondItem="EaE-df-IPa" secondAttribute="leading" id="qb4-LC-NDo"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="144" id="rN2-AD-a5Y"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="trailing" secondItem="OOZ-a6-lwV" secondAttribute="trailing" id="uYW-88-JkI"/>
+                            <constraint firstItem="OOZ-a6-lwV" firstAttribute="centerY" secondItem="TjG-b0-dRh" secondAttribute="centerY" constant="189" id="vqe-br-occ"/>
+                            <constraint firstItem="BTs-fY-R5h" firstAttribute="leading" secondItem="xfs-mX-Oto" secondAttribute="leading" id="xUc-D1-Qtv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="BTs-fY-R5h" id="wyx-pX-3GC"/>
+                        <outlet property="confirmNumberTextField" destination="EaE-df-IPa" id="aSf-V3-yv9"/>
+                        <outlet property="phoneNumberTextField" destination="aim-kk-jfM" id="9Wt-LX-qLq"/>
+                        <outlet property="sendButton" destination="dSz-Fh-OWo" id="vEh-aE-n9q"/>
+                        <outlet property="warnningMessageLabel" destination="xfs-mX-Oto" id="BQ3-03-fz5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIf-mX-BVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="124"/>
+        </scene>
+    </scenes>
+</document>

@@ -27,6 +27,7 @@
 		9824B1FA1F287D8200B692AC /* JoinViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1F91F287D8200B692AC /* JoinViewControllerTest.swift */; };
 		9824B1FC1F2892BA00B692AC /* ConfirmViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1FB1F2892BA00B692AC /* ConfirmViewControllerTest.swift */; };
 		9824B1FE1F28BF1400B692AC /* DatePickerViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1FD1F28BF1400B692AC /* DatePickerViewControllerTest.swift */; };
+		9824B2001F29699900B692AC /* MainViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9824B1FF1F29699900B692AC /* MainViewControllerTest.swift */; };
 		BD72A9DD25CBFD205654D2E9 /* Pods_ChickenCountTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF3C875F40E58A9A4BB776 /* Pods_ChickenCountTests.framework */; };
 		D262E828D8DF79E6271141F7 /* Pods_ChickenCount.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C66EF48FB21DC8CF9B60A12 /* Pods_ChickenCount.framework */; };
 		EA4168884ECD0427F41E57FB /* Pods_ChickenCountUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A63E7BB5D7CB64A92FCD53 /* Pods_ChickenCountUITests.framework */; };
@@ -80,6 +81,7 @@
 		9824B1F91F287D8200B692AC /* JoinViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewControllerTest.swift; sourceTree = "<group>"; };
 		9824B1FB1F2892BA00B692AC /* ConfirmViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewControllerTest.swift; sourceTree = "<group>"; };
 		9824B1FD1F28BF1400B692AC /* DatePickerViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewControllerTest.swift; sourceTree = "<group>"; };
+		9824B1FF1F29699900B692AC /* MainViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTest.swift; sourceTree = "<group>"; };
 		9C66EF48FB21DC8CF9B60A12 /* Pods_ChickenCount.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChickenCount.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A545A162D7500EADEB7102C3 /* Pods-ChickenCountTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickenCountTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChickenCountTests/Pods-ChickenCountTests.release.xcconfig"; sourceTree = "<group>"; };
 		A6C989A1FE2CAE10A301752C /* Pods-ChickenCount.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickenCount.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChickenCount/Pods-ChickenCount.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				9824B1F91F287D8200B692AC /* JoinViewControllerTest.swift */,
 				9824B1FB1F2892BA00B692AC /* ConfirmViewControllerTest.swift */,
 				9824B1FD1F28BF1400B692AC /* DatePickerViewControllerTest.swift */,
+				9824B1FF1F29699900B692AC /* MainViewControllerTest.swift */,
 				9824B1C61F282E3300B692AC /* Info.plist */,
 			);
 			path = ChickenCountTests;
@@ -555,6 +558,7 @@
 				9824B1FE1F28BF1400B692AC /* DatePickerViewControllerTest.swift in Sources */,
 				9824B1FA1F287D8200B692AC /* JoinViewControllerTest.swift in Sources */,
 				9824B1C51F282E3300B692AC /* ChickenCountTests.swift in Sources */,
+				9824B2001F29699900B692AC /* MainViewControllerTest.swift in Sources */,
 				9824B1FC1F2892BA00B692AC /* ConfirmViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,7 @@ class ConfirmViewController: UIViewController {
     func sendButtonAction() {
         phoneNumber = phoneNumberTextField.text!
         randomNumber = String(arc4random_uniform(899999) + 100000)
+        print(randomNumber)
 //        Networking().postConfirm(message: ["username":phoneNumber, "text":randomNumber])
         reloadView()
         warnningMessageLabel.isHidden = true

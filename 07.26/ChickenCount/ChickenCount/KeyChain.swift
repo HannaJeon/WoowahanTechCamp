@@ -25,4 +25,8 @@ class KeyChain {
             User.sharedInstance = object
         }
     }
+    
+    func removeKeyChain() {
+        keychaineWrapper.removeObject(forKey: "userKeyChain")
+    }
 }
